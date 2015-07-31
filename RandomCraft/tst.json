@@ -1,0 +1,29 @@
+{
+	"recipies":[
+		{
+			"name":"name1",
+			"in":[
+				{
+					"itemid":152,
+					"isRequired":true
+				},
+				{
+					"itemid":172,
+					"isRequired":false,
+					"formula":"log",
+					"region":[0, 64]
+				}
+			],
+			"out":[
+				{
+					"itemid":241,
+					"enchantment":[
+						1, 5,
+						5, 4
+					],
+					"lore":"An amazing!"
+				}
+			]
+		}
+	]
+}

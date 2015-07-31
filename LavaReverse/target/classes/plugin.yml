@@ -1,0 +1,3 @@
+name: Lava Reverse
+main: io.github.dousha.lavaReverse.lavareverse.LavaReverse
+version: 0.0.1-SNAPSHOT
