@@ -1,0 +1,6 @@
+io\github\dousha\randomCraft\randomcraft\RandomCraft.class
+io\github\dousha\randomCraft\randomcraft\IllegalFormulaException.class
+io\github\dousha\randomCraft\randomcraft\MajorItemNotEnoughException.class
+io\github\dousha\randomCraft\randomcraft\ItemNotEnoughException.class
+io\github\dousha\randomCraft\randomcraft\Pair.class
+io\github\dousha\randomCraft\randomcraft\ItemDescription.class

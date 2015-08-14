@@ -1,0 +1,41 @@
+--- # random crafting
+# please notice that the id should be continuous
+# or recipes won't be loaded correctly
+1:
+ name: testCraft
+ in:
+  - itemname:       DIAMOND
+    # use enumeration name here, you can reference to bukkit API list
+    isRequired:     Yes
+    # this recipe won't be called if there's lack of required items
+    leastAmount:    2
+  
+  - itemname:       COAL
+    isRequired:     No
+    base:           0.1
+    formula:        linear
+    # formula has these types
+    # linear(y = k*x + b), log(y = a*log _b x + c ), expr(y = a*x ^ b + c)
+    arg1: 1
+    arg2: 0
+    arg3: 0
+    # arg3 is not used in linear formula
+    # the probability will be calculated in this way (for linear formula)
+    # Probability = arg1 * amount + arg2
+    domain:
+      from: 0
+      to:   64
+    
+  - itemname:       GOLD_SWORD
+    isRequired:     Yes
+    leastAmount:    1
+    
+ out:
+  - itemname:       DIAMOND_SWORD
+    enchantments:
+     - name: DAMAGE_ALL
+     # use enumeration name here, please
+       level: 5
+     
+     - name: KNOCKBACK
+       level: 3
