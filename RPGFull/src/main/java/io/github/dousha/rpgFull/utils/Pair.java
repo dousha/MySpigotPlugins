@@ -4,6 +4,18 @@ public class Pair<K, V> implements Cloneable{
 	private K first;
 	private V second;
 	
+	public Pair(){}
+	
+	public Pair(K k, V v){
+		first = k;
+		second = v;
+	}
+	
+	public void put(K k, V v){
+		first = k;
+		second = v;
+	}
+	
 	public K getFirst() {
 		return first;
 	}
