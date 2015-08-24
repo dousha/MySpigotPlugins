@@ -1,10 +1,14 @@
 package io.github.dousha.craftingManager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import org.bukkit.Material;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.dousha.rpgFull.utils.Pair;
@@ -12,11 +16,15 @@ import io.github.dousha.rpgFull.utils.Yell;
 
 public class RecipeSink {
 	// List<Pair<$recipeName, Pair<List<$in>, List<$out>>>>
-	private List<Pair<String, Pair<List<ItemStruct>, List<ItemStruct>>>> _sink = 
-			new ArrayList<Pair<String, Pair<List<ItemStruct>, List<ItemStruct>>>>();
+	private List<Pair<String, Pair<List<ItemStruct>, List<ItemStruct>>>> _sink;
 	// List<Pair<$majorItem, List<$recipeNames>>>
-	private List<Pair<ItemStruct, List<String>>> _majorSink =
-			new ArrayList<Pair<ItemStruct, List<String>>>();
+	private Map<ItemStruct, List<String>> _majorSink;
+	
+	RecipeSink(YamlConfiguration yaml){
+		_sink = new ArrayList<Pair<String, Pair<List<ItemStruct>, List<ItemStruct>>>>();
+		_majorSink = new HashMap<ItemStruct, List<String>>();
+		loadSink(yaml);
+	}
 	
 	@SuppressWarnings("unchecked")
 	public void loadSink(YamlConfiguration yaml){
@@ -96,7 +104,23 @@ public class RecipeSink {
 	}
 	
 	private void loadMajorSink(){
-		
+		for(int i = 0; i < _sink.size(); i++){
+			String curRecipeName = _sink.get(i).getFirst();
+			List<ItemStruct> curList = _sink.get(i).getSecond().getFirst();
+			for(ItemStruct item : curList){
+				if(item.isMajor){
+					if(_majorSink.containsKey(item)){
+						_majorSink.get(item).add(curRecipeName);
+					}
+					else{
+						// XXX: may contain nuts
+						List<String> tList = new ArrayList<String>();
+						tList.add(curRecipeName);
+						_majorSink.put(item, tList);
+					}
+				}
+			}
+		}
 	}
 	
 	public Pair<List<ItemStruct>, List<ItemStruct>> lookupByRecipeName(String name){
@@ -107,10 +131,34 @@ public class RecipeSink {
 		return null;
 	}
 	
-	public List<String> lookupRecipeByMajorItem(ItemStack item){
-		for(int i = 0; i < _majorSink.size(); i++){
-			if(_majorSink.get(i).getFirst().itemname.equals(item.getType())){
-				return _majorSink.get(i).getSecond();
+	public List<String> lookupRecipeByMajorItem(Inventory inv){
+		Set<ItemStruct> set = _majorSink.keySet();
+		for(ItemStack item : inv.getContents()){
+			for(ItemStruct i : set){
+				switch(i.explictation){
+				case 0:
+					// determine by name
+					if(item.hasItemMeta() 
+							&& item.getItemMeta().hasDisplayName() 
+							&& item.getItemMeta().getDisplayName().equals(i.itemname))
+						return _majorSink.get(i);
+					break;
+				case 1:
+					// determine by material
+					if(item.getType().equals(Material.valueOf(i.itemname)))
+						return _majorSink.get(i);
+					break;
+				case 2:
+					// determine by name AND material
+					if(item.hasItemMeta() 
+							&& item.getItemMeta().hasDisplayName() 
+							&& item.getItemMeta().getDisplayName().equals(i.itemname)
+							&& item.getType().equals(Material.valueOf(i.itemname)))
+						return _majorSink.get(i);
+					break;
+				default:
+					return null;	
+				}
 			}
 		}
 		return null;

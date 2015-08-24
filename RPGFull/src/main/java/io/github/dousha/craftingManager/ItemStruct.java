@@ -4,8 +4,9 @@ public class ItemStruct implements Cloneable {
 	public boolean type; // false = in, true = out, I would use #define in c/c++!
 	
 	public String itemname;
+	public String displayName;
 	public int leastAmount;
-	
+
 	public boolean isMajor;
 	public int explictation;
 	
