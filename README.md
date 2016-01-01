@@ -13,3 +13,4 @@ Completed plugins
 -----------------
 * LavaReverse - Your lava turns into obsidian by accident? Smash your bukkit to it!
 * RandomCraft - Crafting, with probability!
+* safeOp

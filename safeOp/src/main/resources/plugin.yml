@@ -1,0 +1,13 @@
+name: SafeOp
+main: io.github.dousha.safeOp.SafeOp
+version: 0.0.1-SNAPSHOT
+commands:
+    /safe_op:
+        description: Op a player safely
+        usage: /<command> [player]
+    /safe_deop:
+        description: Deop a player safely
+        usage: /<command> [player]
+    /safe_op_flush:
+        description: Manually flush op list to the disk
+        usage: /<command>
