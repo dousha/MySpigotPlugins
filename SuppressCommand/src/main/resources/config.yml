@@ -1,0 +1,5 @@
+suppresseds:
+     - '\\/sell\\ hand'
+     - '\\/sell\\ all'
+
+runLevel: 3

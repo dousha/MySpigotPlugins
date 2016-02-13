@@ -1,0 +1,43 @@
+name: SupressCommand
+main: io.github.dousha.suppressCommand.SuppressCommand
+version: 0.1
+commands:
+    suppress:
+        description: Suppress a command
+        usage: /<command> [command string]
+        permission: suppress.add
+        aliases: sup
+    nosuppress:
+        description: Unsuppress a command
+        usage: /<command> [command string]
+        permission: suppress.remove
+        aliases: nosup
+    suppressflush:
+        description: Flush suppressing list into disk
+        usage: /<command>
+        permission: suppress.flush
+        aliases: supflush
+    suppresslist:
+        description: List suppressed commands
+        usage: /<command>
+        permission: suppress.list
+        aliases: suplist
+permissions:
+    suppress.*:
+        description: Full access to this plugin
+        children:
+            suppress.add: true
+            suppress.remove: true
+            suppress.flush: true
+    suppress.add:
+        description: Suppress a command
+        default: op
+    suppress.remove:
+        description: Unsuppress a command
+        default: op
+    suppress.flush:
+        description: Flush list to disk
+        default: op
+    suppress.bypass:
+        description: Bypass suppression
+        default: op
