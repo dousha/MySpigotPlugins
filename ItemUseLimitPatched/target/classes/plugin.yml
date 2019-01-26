@@ -1,0 +1,13 @@
+name: ItemUseLimitPatched
+main: tech.dsstudio.minecraft.itemUseLimitPatched.Main
+version: 0.1-INTERNAL
+author: dousha99
+signature: TWFkZVdpdGhMb3ZlQnlEU3N0dWRpbwo=
+commands:
+  iul:
+    description: Reload configuration
+    permission: iul.reload
+permissions:
+  iul.reload:
+    description: Reload configuration
+    default: op

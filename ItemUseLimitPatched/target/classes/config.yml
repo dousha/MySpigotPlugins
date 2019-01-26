@@ -1,0 +1,5 @@
+useLimit:
+  'Lore line':
+    cantUseMessage: '&e&lSomething'
+    permission:
+      - 'job.sth'

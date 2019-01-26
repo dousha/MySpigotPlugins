@@ -1,0 +1,16 @@
+tech/dsstudio/minecraft/itemUseLimitPatched/TransactionManager$ItemDropTransaction.class
+tech/dsstudio/minecraft/itemUseLimitPatched/TransactionManager$Worker.class
+tech/dsstudio/minecraft/itemUseLimitPatched/Main.class
+tech/dsstudio/minecraft/itemUseLimitPatched/TransactionManager$Transaction.class
+tech/dsstudio/minecraft/itemUseLimitPatched/PermissionSweeper.class
+tech/dsstudio/minecraft/itemUseLimitPatched/Config.class
+tech/dsstudio/minecraft/itemUseLimitPatched/TransactionManager$InventoryReplaceTransaction.class
+tech/dsstudio/minecraft/itemUseLimitPatched/TransactionManager$1.class
+tech/dsstudio/minecraft/itemUseLimitPatched/TransactionManager$MainThreadTransaction.class
+tech/dsstudio/minecraft/itemUseLimitPatched/TransactionManager$InventoryMoveTransaction.class
+tech/dsstudio/minecraft/itemUseLimitPatched/Util.class
+tech/dsstudio/minecraft/itemUseLimitPatched/Monitor.class
+tech/dsstudio/minecraft/itemUseLimitPatched/TransactionManager$ArmorScanTransaction.class
+tech/dsstudio/minecraft/itemUseLimitPatched/TransactionManager$HotBarScanTransaction.class
+tech/dsstudio/minecraft/itemUseLimitPatched/TransactionManager.class
+tech/dsstudio/minecraft/itemUseLimitPatched/LimitEntry.class
