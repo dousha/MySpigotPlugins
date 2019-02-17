@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="93c1bcc5-208e-4eb9-9d0f-1cbe4a587dc7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/RepositoryManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/RepositoryOperationMonitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/RepositoryUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/Button.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/ButtonType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/CommandButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/InfoButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/NextPageButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/PreviousPageButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/Stripe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/AbstractRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ComplexSinglePageItemVendorRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ComplexSinglePageReadOnlyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ComplexSinglePageRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ItemOperationResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ReadOnlyPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ReadOnlyPageLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleMultiplePageReadOnlyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleSinglePageItemVendorRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleSinglePageReadOnlyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleSinglePageReadWriteRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleSinglePageRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Arsenal/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Arsenal/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Arsenal/src/main/java/tech/dsstudio/minecraft/arsenal/ArsenalRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Arsenal/src/main/java/tech/dsstudio/minecraft/arsenal/ItemRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Arsenal/src/main/java/tech/dsstudio/minecraft/arsenal/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Arsenal/src/main/resources/config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Arsenal/src/main/resources/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/notes/manual.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/notes/stuff.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/buttons/Button.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/buttons/ButtonType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/buttons/CommandButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/buttons/InfoButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/buttons/NextPageButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/buttons/PreviousPageButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/internal/Cascade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/internal/CommandHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/internal/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/internal/DogFeeder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/internal/FileOperationBatch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/internal/Instances.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/internal/Monitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/internal/journal/Journal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/internal/journal/JournalEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/internal/journal/JournalType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/internal/pack/InventoryUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/internal/pack/PortablePack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/internal/pack/PortablePackManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/java/tech/dsstudio/minecraft/portapack/internal/pack/PortablePackSnapshot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/resources/config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PortAPack/src/main/resources/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RightClickThrottler/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RightClickThrottler/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RightClickThrottler/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RightClickThrottler/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RightClickThrottler/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RightClickThrottler/RightClickThrottler.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RightClickThrottler/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RightClickThrottler/src/main/java/tech/dsstudio/minecraft/rightClickThrottler/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RightClickThrottler/src/main/resources/config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RightClickThrottler/src/main/resources/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../armorHide/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../armorHide/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../armorHide/src/main/java/tech/dsstudio/minecraft/armorHide/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../armorHide/src/main/resources/config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../armorHide/src/main/resources/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../itemLotto/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../itemLotto/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../itemLotto/src/main/java/tech/dsstudio/minecraft/itemLotto/Help.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../itemLotto/src/main/java/tech/dsstudio/minecraft/itemLotto/ItemRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../itemLotto/src/main/java/tech/dsstudio/minecraft/itemLotto/LottoEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../itemLotto/src/main/java/tech/dsstudio/minecraft/itemLotto/LottoInventory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../itemLotto/src/main/java/tech/dsstudio/minecraft/itemLotto/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../itemLotto/src/main/resources/config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../itemLotto/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ItemUseLimitPatched/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ItemUseLimitPatched/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SuppressCommand/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SuppressCommand/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SuppressCommand/src/main/java/io/github/dousha/suppressCommand/SuppressCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SuppressCommand/src/main/java/io/github/dousha/suppressCommand/SuppressCommand.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleSinglePageReadOnlyRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="19" column="65" selection-start-line="19" selection-start-column="65" selection-end-line="19" selection-end-column="65" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleSinglePageItemVendorRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ComplexSinglePageItemVendorRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/RepositoryManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="517">
+              <caret line="31" column="71" selection-start-line="31" selection-start-column="71" selection-end-line="31" selection-end-column="71" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1340#1341#0" expanded="true" />
+                <element signature="e#1366#1367#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/RepositoryOperationMonitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-494">
+              <caret line="37" column="69" selection-start-line="37" selection-start-column="69" selection-end-line="37" selection-end-column="69" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ComplexSinglePageRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ComplexSinglePageReadOnlyRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="11" column="95" selection-start-line="11" selection-start-column="95" selection-end-line="11" selection-end-column="95" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleSinglePageRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="608">
+              <caret line="47" column="1" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleMultiplePageReadOnlyRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleSinglePageReadWriteRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>isIn</find>
+      <find>recoverItem</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/RepositoryPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/IRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/Button.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/InfoButton.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/CommandButton.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/NextPageButton.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/PreviousPageButton.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/Stripe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/LoadingMethod.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/AbstractRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ReadOnlyPagePopulator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/Stripe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SinglePageReadOnlyRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/MultiplePageReadOnlyRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleReadOnlyPageLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ReadOnlyPageLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ReadOnlyPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ItemVendingRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimlpeItemVendingRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleItemVendorRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ItemOperationResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/InventoryLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/RepositorySerializer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/AbstractRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleMultiplePageReadOnlyRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/RepositoryManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleSinglePageReadOnlyRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleSinglePageReadWriteRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleSinglePageItemVendorRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/RepositoryUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SinglePageRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleSinglePageRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ComplexSinglePageItemVendorRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ComplexSinglePageRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ComplexSinglePageReadOnlyRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/RepositoryOperationMonitor.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-5" />
+    <option name="width" value="1930" />
+    <option name="height" value="1085" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="AbstractRepository" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AbstractRepository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AbstractRepository" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AbstractRepository" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AbstractRepository" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AbstractRepository" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AbstractRepository" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AbstractRepository" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AbstractRepository" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AbstractRepository" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="abstractRepository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AbstractRepository" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AbstractRepository" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="abstractRepository" type="462c0819:PsiDirectoryNode" />
+              <item name="buttons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AbstractRepository" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AbstractRepository" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="abstractRepository" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="93c1bcc5-208e-4eb9-9d0f-1cbe4a587dc7" name="Default Changelist" comment="" />
+      <created>1549897572940</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1549897572940</updated>
+      <workItem from="1549897576074" duration="4323000" />
+      <workItem from="1549901957948" duration="13000" />
+      <workItem from="1549953405660" duration="3720000" />
+      <workItem from="1549965770673" duration="1142000" />
+      <workItem from="1550054310398" duration="20657000" />
+      <workItem from="1550127097621" duration="14132000" />
+      <workItem from="1550230720396" duration="8856000" />
+      <workItem from="1550381651370" duration="1174000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="54017000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-5" y="0" width="1930" height="1085" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15347594" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32967034" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Duplicate detector" order="12" weight="0.32967034" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/RepositoryPage.java" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/plugin.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/ButtonType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/CommandButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="17" column="76" selection-start-line="17" selection-start-column="76" selection-end-line="17" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/PreviousPageButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/InfoButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="14" column="64" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/NextPageButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/LoadingMethod.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/Button.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="40" column="47" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/Stripe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ReadOnlyPageLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/RepositorySerializer.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/AbstractRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="188" column="35" lean-forward="true" selection-start-line="188" selection-start-column="35" selection-end-line="188" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ReadOnlyPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ItemOperationResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/RepositoryUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2774">
+          <caret line="155" column="5" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleSinglePageReadOnlyRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="19" column="65" selection-start-line="19" selection-start-column="65" selection-end-line="19" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleSinglePageItemVendorRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ComplexSinglePageRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ComplexSinglePageReadOnlyRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="11" column="95" selection-start-line="11" selection-start-column="95" selection-end-line="11" selection-end-column="95" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleSinglePageRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="47" column="1" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleMultiplePageReadOnlyRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/SimpleSinglePageReadWriteRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/repository/ComplexSinglePageItemVendorRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/RepositoryManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="31" column="71" selection-start-line="31" selection-start-column="71" selection-end-line="31" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1340#1341#0" expanded="true" />
+            <element signature="e#1366#1367#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/abstractRepository/RepositoryOperationMonitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-494">
+          <caret line="37" column="69" selection-start-line="37" selection-start-column="69" selection-end-line="37" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

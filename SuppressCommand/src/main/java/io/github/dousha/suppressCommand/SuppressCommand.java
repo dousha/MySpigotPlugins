@@ -20,8 +20,8 @@ public class SuppressCommand extends JavaPlugin implements Listener{
 		saveDefaultConfig();
 		_suppresseds = getConfig().getStringList("suppresseds");
 		_runLevel = getConfig().getInt("runLevel");
-		if(_runLevel > 3){
-			yell("Run level incorrect (>3)!");
+		if(_runLevel > 3 || _runLevel < 0){
+			yell("Run level incorrect!");
 			yell("Readjusting to 3");
 			_runLevel = 3;
 		}
@@ -38,66 +38,70 @@ public class SuppressCommand extends JavaPlugin implements Listener{
 	@EventHandler
 	public void onPlayerCommand(PlayerCommandPreprocessEvent e){
 		String curCmd = e.getMessage();
-		for(String suppressed : _suppresseds){
-			if(curCmd.matches(suppressed) && !e.getPlayer().hasPermission("suppress.bypass")){
-				e.setCancelled(true);
-				switch(_runLevel){
-					case 0: // silent
-						;
-						break;
-					case 1: // log
-						yell("Suppressed command " + e.getMessage() + " fired by " + e.getPlayer());
-						break;
-					case 2: // tell
-						e.getPlayer().sendMessage("This command is suppressed by admins.");
-						break;
-					case 3: // both log and tell
-						yell("Suppressed command " + e.getMessage() + " fired by " + e.getPlayer());
-						e.getPlayer().sendMessage("This command is suppressed by admins.");
-						break;
-					default: // behave same as level 0
-						;
-						break;
+		yell(curCmd);
+		if (!e.getPlayer().hasPermission("suppress.bypass")) {
+			for (String suppressed : _suppresseds) {
+				if (curCmd.matches(suppressed)) {
+					e.setCancelled(true);
+					switch (_runLevel) {
+						case 0: // silent
+							;
+							break;
+						case 1: // log
+							yell("Suppressed command " + e.getMessage() + " fired by " + e.getPlayer().getName());
+							break;
+						case 2: // tell
+							e.getPlayer().sendMessage("This command is suppressed by admins.");
+							break;
+						case 3: // both log and tell
+							yell("Suppressed command " + e.getMessage() + " fired by " + e.getPlayer().getName());
+							e.getPlayer().sendMessage("This command is suppressed by admins.");
+							break;
+						default: // behave same as level 0
+							;
+							break;
+					}
+					break; // if matched, there's no need to continue.
 				}
-				break; // if matched, there's no need to continue.
 			}
 		}
 	}
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
-		if(sender instanceof Player){
-			if(cmd.getName().equals("suppress")){
-				String curCmd = "";
-				for(String curPiece : args){
-					curCmd += curPiece + " ";
+		switch (cmd.getName()) {
+			case "suppress": {
+				StringBuilder curCmd = new StringBuilder();
+				for (String curPiece : args) {
+					curCmd.append(curPiece).append(" ");
 				}
-				curCmd = curCmd.trim();
-				_suppresseds.add(curCmd);
+				curCmd = new StringBuilder(curCmd.toString().trim());
+				_suppresseds.add(curCmd.toString());
 				getConfig().set("suppresseds", _suppresseds);
 				sender.sendMessage("Suppressed command `" + curCmd + "`");
+				break;
 			}
-			else if(cmd.getName().equals("nosuppress")){
-				String curCmd = "";
-				for(String curPiece : args){
-					curCmd += curPiece + " ";
+			case "nosuppress": {
+				StringBuilder curCmd = new StringBuilder();
+				for (String curPiece : args) {
+					curCmd.append(curPiece).append(" ");
 				}
-				curCmd = curCmd.trim();
-				_suppresseds.remove(curCmd);
+				curCmd = new StringBuilder(curCmd.toString().trim());
+				_suppresseds.remove(curCmd.toString());
 				getConfig().set("suppresseds", _suppresseds);
 				sender.sendMessage("Unsuppressed command `" + curCmd + "`");
+				break;
 			}
-			else if(cmd.getName().equals("suppressflush")){
+			case "suppressflush":
 				saveConfig();
 				sender.sendMessage(_myname + "List saved.");
-			}
-			else if(cmd.getName().equals("suppresslist")){
-				for(String curSuppress : _suppresseds)
+				break;
+			case "suppresslist":
+				for (String curSuppress : _suppresseds)
 					sender.sendMessage(curSuppress);
-			}
-			else{
+				break;
+			default:
 				return false;
-			}
 		}
 		return true;
 	}

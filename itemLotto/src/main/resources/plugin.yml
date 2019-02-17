@@ -1,0 +1,57 @@
+name: CoslightLottery
+main: tech.dsstudio.minecraft.itemLotto.Main
+version: 0.1-INTERNAL
+author: dousha99
+depend:
+  - Vault
+  - PlayerPoints
+commands:
+  ilvo:
+    description: Open Vault-based item lottery interface
+    permission: itemlotto.use.vault
+    usage: /ilvo
+  ilpo:
+    description: Open PlayerPoints-based item lottery interface
+    permission: itemlotto.use.playerpoints
+    usage: /ilpo
+  ilr:
+    description: Reload configuration
+    permission: itemlotto.reload
+    usage: /ilr
+  ils:
+    description: Save item in hand as a lottery entry
+    permission: itemlotto.save
+    usage: /ils <name>
+  ild:
+    description: Delete a lottery entry
+    permission: itemlotto.delete
+    usage: /ild <name>
+  ilp:
+    description: Print all entries
+    permission: itemlotto.print
+    usage: /ilp
+  ilh:
+    description: Please, don't ask.
+    permission: itemlotto.help
+    usage: /ilh <topic>
+permissions:
+  itemlotto.*:
+    description: Grants everything
+    children:
+      - itemlotto.use.*
+      - itemlotto.reload
+      - itemlotto.save
+      - itemlotto.delete
+      - itemlotto.delete
+      - itemlotto.print
+      - itemlotto.help
+    default: op
+  itemlotto.use.*:
+    description: Grants using the slot stuff
+    children:
+      - itemlotto.use.vault
+      - itemlotto.use.playerpoints
+    default: op
+  itemlotto.help:
+    description: See help
+    default: true

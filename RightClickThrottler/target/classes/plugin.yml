@@ -1,0 +1,7 @@
+name: RightClickThrottler
+main: tech.dsstudio.minecraft.rightClickThrottler.Main
+version: 0.1-INTERNAL
+authors:
+  - andylizi
+  - dousha99
+license: GNU GPLv3

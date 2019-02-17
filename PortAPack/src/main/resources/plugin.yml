@@ -1,0 +1,94 @@
+name: PortAPack
+version: 0.1-INTERNAL
+main: tech.dsstudio.minecraft.portapack.Main
+commands:
+  prtjp:
+    usage: /prtjp <player> [entry count = 5]
+    description: List jounral
+    permission: portapack.jounral.read
+  prtjv:
+    usage: /prtjv <player>
+    description: Verify PortablePack status
+    permission: portapack.journal.verify
+  prtsw:
+    usage: /prtjw <player> [time = immediate] [keep entries = true]
+    description: Save a PortablePack snapshot
+    permission: portapack.snapshot.write
+  prtsp:
+    usage: /prtjl <player> [count = 5]
+    description: List all snapshots taken
+    permission: portapack.snapshot.read
+  prtso:
+    usage: /prtjr <player> [snapshot name = latest]
+    description: Revert a PortablePack to a snapshot status
+    permission: portapack.snapshot.open
+  prtio:
+    usage: /prtio
+    description: Open your PortablePack
+    permission: portapack.inventory.open
+  prtix:
+    usage: /prtix [page = all]
+    description: Clear your PortablePack
+    permission: protapack.inventory.clear
+  prtrio:
+    usage: /prtrio <player>
+    description: Open someone else's PortablePack
+    permission: portapack.remote.open
+  prtrix:
+    usage: /prtrix <player> <page = all>
+    description: Clear someone else's PortablePack
+    permission: portapack.remote.clear
+permissions:
+  portapack.*:
+    description: Grants all permissions
+    children:
+      - portapack.journal.*
+      - portapack.remote.*
+      - portapack.snapshot.*
+      - portapack.inventory.*
+    default: op
+  portapack.journal.*:
+    description: Grants all journal operations
+    children:
+      - portapack.journal.read
+      - portapack.journal.revert
+    default: op
+  portapack.remote.*:
+    description: Grants all remote inventory operations
+    children:
+      - portapack.remote.open
+      - portapack.remote.clear
+    default: op
+  portapack.inventory.*:
+    description: Grants all inventory operations
+    children:
+      - portapack.inventory.open
+      - portapack.inventory.clear
+    default: op
+  portapack.snapshot.*:
+    description: Grants all snapshot operations
+    children:
+      - portapack.snapshot.read
+      - portapack.snapshot.write
+      - portapack.snapshot.open
+    default: op
+  portapack.journal.read:
+    description: Grants reading journal
+  portapack.journal.write:
+    description: Grants writing to journal
+  portapack.journal.revert:
+    description: Grants reverting journal
+  portapack.remote.open:
+    description: Grants opening someone else's inventory
+  portapack.remote.clear:
+    description: Grants clearing someone else's inventory
+  portapack.inventory.open:
+    description: Grants opening your portable inventory
+  portapack.inventory.clear:
+    description: Grants clearing your portable inventory
+  portapack.snapshot.read:
+    description: Grants listing snapshots
+  portapack.snapshot.write:
+    description: Grants creating snapshots
+  portapack.snapshot.open:
+    description: Grants reverting an inventory to a snapshot

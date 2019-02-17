@@ -1,0 +1,12 @@
+interact:
+  enable: true
+  maxInterval: 110
+hit:
+  enable: false
+  maxInterval: 90
+shootArrow:
+  enable: false
+  maxInterval: 190
+fishing:
+  enable: true
+  maxInterval: 100

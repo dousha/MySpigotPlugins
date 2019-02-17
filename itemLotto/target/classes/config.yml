@@ -1,0 +1,38 @@
+vault:
+  cost: 100
+  title: 金币抽奖
+  button: 开始摇奖！$cost 金币一次
+  slots:
+    0:
+      name: iron
+      rate: 0.5
+    1:
+      name: diamonds
+      rate: 0.2
+    2:
+      name: sword
+      rate: 0.2
+    3:
+      name: oof
+      rate: 0.1
+
+playerpoints:
+  cost: 10
+  title: 点券抽奖
+  button: 开始摇奖！$cost 点券一次
+  slots:
+    0:
+      name: moar_diamonds
+      rate: 0.3
+    1:
+      name: ex_calibur
+      rate: 0.3
+    2:
+      name: speed_speed_boi
+      rate: 0.2
+    3:
+      name: newtons_flaming_laser_sword
+      rate: 0.05
+    4:
+      name: dab_on_those_haters
+      rate: 0.05

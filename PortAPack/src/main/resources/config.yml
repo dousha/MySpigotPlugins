@@ -1,0 +1,57 @@
+# ---------- PortAPack ------------
+
+# Database configuration
+database:
+  host: localhost
+  port: 3306
+  username: portapack
+  password: portapack
+  name: portapack
+
+# Title configuration
+# Available placeholders:
+# - $player : The display name of a player
+# - $page : Current page
+# - $total : Total pages
+title: $player's PortAPack - $page/$total
+
+# Bottom Slot Configurations
+buttons:
+  0:
+    icon: STICK
+    type: PREVIOUS_PAGE
+    name: < Prev
+    lore:
+      - Go to previous page
+  1:
+    icon: COMMAND
+    type: COMMAND
+    name: Say hi
+    lore:
+      - Just say hi
+    command: say hi
+  7:
+    icon: DIAMOND
+    type: INFO
+    name: Have fun!
+    lore:
+      - Brought to you by dousha99
+      - Consider buying me a cup of coffe? :P
+  8:
+    icon: STICK
+    type: NEXT_PAGE
+    name: Next >
+    lore:
+      - Go to next page
+
+# And some financial settings
+freePage: 1
+maxPage: 5
+pagePerm:
+  2: portapack.donation
+  3: portapack.premium
+  5: portapack.luxary
+
+# Some technical tweaks
+watchdogTolerance: 1000 # ms
+verifyOnStartup: false

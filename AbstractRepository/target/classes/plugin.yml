@@ -1,0 +1,4 @@
+name: AbstractRepository
+main: tech.dsstudio.minecraft.abstractRepository.Main
+version: 0.1-SNAPSHOT
+author: dousha99

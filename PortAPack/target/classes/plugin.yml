@@ -1,0 +1,67 @@
+name: PortAPack
+version: 0.1-INTERNAL
+main: tech.dsstudio.minecraft.portapack.Main
+commands:
+  prtjp:
+    usage: /prtjp <player> <entry count = 5>
+    description: List jounral
+    permission: portapack.jounral.read
+  prtjr:
+    usage: /prtjr <player> <entry count>
+    description: Revert journal entries of a player
+    permission: portapack.journal.revert
+  prtio:
+    usage: /prtio
+    description: Open your PortablePack
+    permission: portapack.inventory.open
+  prtix:
+    usage: /prtix <page = all>
+    description: Clear your PortablePack (CANNOT REVERT!)
+    permission: protapack.inventory.clear
+  prtrio:
+    usage: /prtrio <player>
+    description: Open someone else's PortablePack
+    permission: portapack.remote.open
+  prtrix:
+    usage: /prtrix <player> <page = all>
+    description: Clear someone else's PortablePack
+    permission: portapack.remote.clear
+permissions:
+  portapack.*:
+    description: Grants all permissions
+    children:
+      - portapack.journal.*
+      - portapack.remote.*
+      - portapack.inventory.*
+    default: op
+  portapack.journal.*:
+    description: Grants all journal operations
+    children:
+      - portapack.journal.read
+      - portapack.journal.revert
+    default: op
+  portapack.remote.*:
+    description: Grants all remote inventory operations
+    children:
+      - portapack.remote.open
+      - portapack.remote.clear
+    default: op
+  portapack.inventory.*:
+    description: Grants all inventory operations
+    children:
+      - portapack.inventory.open
+      - portapack.inventory.clear
+  portapack.journal.read:
+    description: Grants reading journal
+  portapack.journal.write:
+    description: Grants writing to journal
+  portapack.journal.revert:
+    description: Grants reverting journal
+  portapack.remote.open:
+    description: Grants opening someone else's inventory
+  portapack.remote.clear:
+    description: Grants clearing someone else's inventory
+  portapack.inventory.open:
+    description: Grants opening your portable inventory
+  portapack.inventory.clear:
+    description: Grants clearing your portable inventory
