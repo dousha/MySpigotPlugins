@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75c8030a-54f3-47fe-9520-c2858f90dd49" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../ItemUseLimitPatched/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ItemUseLimitPatched/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ItemUseLimitPatched/src/main/java/tech/dsstudio/minecraft/itemUseLimitPatched/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ItemUseLimitPatched/src/main/java/tech/dsstudio/minecraft/itemUseLimitPatched/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ItemUseLimitPatched/src/main/java/tech/dsstudio/minecraft/itemUseLimitPatched/Monitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ItemUseLimitPatched/src/main/java/tech/dsstudio/minecraft/itemUseLimitPatched/Util.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ItemUseLimitPatched/src/main/resources/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ItemUseLimitPatched/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SuppressCommand/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SuppressCommand/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SuppressCommand/src/main/java/io/github/dousha/suppressCommand/SuppressCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SuppressCommand/src/main/java/io/github/dousha/suppressCommand/SuppressCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AbstractRepository/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AbstractRepository/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arsenal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Arsenal/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,11 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/hopperScanner/HopperScanner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="134" column="53" selection-start-line="134" selection-start-column="53" selection-end-line="134" selection-end-column="53" />
+            <state relative-caret-position="-43">
+              <caret line="133" column="45" selection-start-line="133" selection-start-column="45" selection-end-line="133" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,18 +58,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/hopperScanner/Teller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/hopperScanner/HopperCluster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
+            <state relative-caret-position="394">
               <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -89,7 +72,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/hopperScanner/Worker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
+            <state relative-caret-position="133">
               <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -101,7 +84,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/hopperScanner/Lattice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="1083">
               <caret line="74" column="23" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -110,7 +93,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/hopperScanner/LatticeCluster.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="209">
@@ -179,9 +162,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -225,17 +208,18 @@
       <workItem from="1548326991798" duration="2997000" />
       <workItem from="1548332475051" duration="2025000" />
       <workItem from="1548357050351" duration="736000" />
+      <workItem from="1550473699554" duration="72000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27942000" />
+    <option name="totallyTimeSpent" value="28014000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-5" y="0" width="1376" height="773" extended-state="6" />
+    <frame x="-5" y="0" width="1930" height="1085" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21200608" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2144385" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -289,27 +273,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/hopperScanner/Teller.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/hopperScanner/Lattice.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/hopperScanner/HopperCluster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+        <state relative-caret-position="1083">
+          <caret line="74" column="23" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/plugin.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="11" selection-start-column="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/hopperScanner/HopperScanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-43">
+          <caret line="133" column="45" selection-start-line="133" selection-start-column="45" selection-end-line="133" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/hopperScanner/Teller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="46" lean-forward="true" selection-start-column="46" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/hopperScanner/Worker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
+        <state relative-caret-position="133">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/hopperScanner/HopperCluster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -324,33 +335,6 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1154#1155#0" expanded="true" />
             <element signature="e#1218#1219#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/plugin.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="11" selection-start-column="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/hopperScanner/Lattice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="74" column="23" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/hopperScanner/HopperScanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="134" column="53" selection-start-line="134" selection-start-column="53" selection-end-line="134" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

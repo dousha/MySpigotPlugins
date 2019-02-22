@@ -2,71 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed142410-2775-4f45-9e4d-47dc782b9532" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../AbstractRepository/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AbstractRepository/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AbstractRepository/src/main/java/tech/dsstudio/minecraft/abstractRepository/AbstractRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AbstractRepository/src/main/java/tech/dsstudio/minecraft/abstractRepository/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AbstractRepository/src/main/java/tech/dsstudio/minecraft/abstractRepository/RepositoryUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AbstractRepository/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/Button.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AbstractRepository/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/ButtonType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AbstractRepository/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/CommandButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AbstractRepository/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/InfoButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AbstractRepository/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/NextPageButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AbstractRepository/src/main/java/tech/dsstudio/minecraft/abstractRepository/buttons/PreviousPageButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AbstractRepository/src/main/resources/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Arsenal/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Arsenal/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Arsenal/src/main/java/tech/dsstudio/minecraft/arsenal/ArsenalRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Arsenal/src/main/java/tech/dsstudio/minecraft/arsenal/ItemRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Arsenal/src/main/java/tech/dsstudio/minecraft/arsenal/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Arsenal/src/main/resources/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Arsenal/src/main/resources/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/manual.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/stuff.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/buttons/Button.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/buttons/ButtonType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/buttons/CommandButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/buttons/InfoButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/buttons/NextPageButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/buttons/PreviousPageButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/internal/Cascade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/internal/CommandHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/internal/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/internal/DogFeeder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/internal/FileOperationBatch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/internal/Instances.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/internal/Monitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/internal/journal/Journal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/internal/journal/JournalEntry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/internal/journal/JournalType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/internal/pack/InventoryUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/internal/pack/PortablePack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/internal/pack/PortablePackManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/internal/pack/PortablePackSnapshot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../armorHide/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../armorHide/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../armorHide/src/main/java/tech/dsstudio/minecraft/armorHide/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../armorHide/src/main/resources/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../armorHide/src/main/resources/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../itemLotto/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../itemLotto/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../itemLotto/src/main/java/tech/dsstudio/minecraft/itemLotto/Help.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../itemLotto/src/main/java/tech/dsstudio/minecraft/itemLotto/ItemRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../itemLotto/src/main/java/tech/dsstudio/minecraft/itemLotto/LottoEntry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../itemLotto/src/main/java/tech/dsstudio/minecraft/itemLotto/LottoInventory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../itemLotto/src/main/java/tech/dsstudio/minecraft/itemLotto/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../itemLotto/src/main/resources/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../itemLotto/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ItemUseLimitPatched/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ItemUseLimitPatched/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SuppressCommand/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SuppressCommand/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SuppressCommand/src/main/java/io/github/dousha/suppressCommand/SuppressCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SuppressCommand/src/main/java/io/github/dousha/suppressCommand/SuppressCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AbstractRepository/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AbstractRepository/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arsenal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Arsenal/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hopperScan/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hopperScan/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -142,8 +81,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/internal/Monitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="87" column="33" selection-start-line="87" selection-start-column="33" selection-end-line="87" selection-end-column="33" />
+            <state relative-caret-position="470">
+              <caret line="120" column="9" lean-forward="true" selection-start-line="120" selection-start-column="9" selection-end-line="120" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -314,9 +253,10 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
-    <option name="width" value="960" />
-    <option name="height" value="1080" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-5" />
+    <option name="width" value="1930" />
+    <option name="height" value="1085" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -325,7 +265,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -413,6 +352,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -456,17 +396,18 @@
       <workItem from="1548974441078" duration="13506000" />
       <workItem from="1549396889727" duration="33479000" />
       <workItem from="1549965713417" duration="351000" />
+      <workItem from="1550473782885" duration="82000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92679000" />
+    <option name="totallyTimeSpent" value="92761000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="960" height="1080" extended-state="4" />
+    <frame x="-5" y="0" width="1930" height="1085" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.36222222" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17914438" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -766,8 +707,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tech/dsstudio/minecraft/portapack/internal/Monitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="87" column="33" selection-start-line="87" selection-start-column="33" selection-end-line="87" selection-end-column="33" />
+        <state relative-caret-position="470">
+          <caret line="120" column="9" lean-forward="true" selection-start-line="120" selection-start-column="9" selection-end-line="120" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
