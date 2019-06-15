@@ -1,0 +1,28 @@
+jail: dsrt/
+
+basic:
+  permission: dsrt.basic
+  canLeaveJail: false
+  canRead: true
+  canWrite: false
+  canExecute: false
+  jail: anonymous/
+
+user:
+  permission: dsrt.user
+  canLeaveJail: false
+  canRead: true
+  canWrite: true
+  canExecute: false
+  jail: ~/
+
+operator:
+  permission: dsrt.op
+  canLeaveJail: true
+  canRead: true
+  canExecute: true
+  jail: root/
+
+console:
+  canLeaveJail: true
+  jail: ./
