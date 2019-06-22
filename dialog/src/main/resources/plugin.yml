@@ -1,0 +1,5 @@
+name: DialogAPI
+description: Just a dialog API
+main: tech.dsstudio.minecraft.dialog.Main
+version: 0.1-BLEEDING
+author: dousha99
