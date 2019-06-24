@@ -2,8 +2,8 @@ package tech.dsstudio.minecraft.dialog;
 
 import org.bukkit.entity.Player;
 
-import java.util.HashMap;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class SessionManager {
 	public boolean playerTalked(Player who, String what) {
@@ -23,7 +23,7 @@ public class SessionManager {
 		return false;
 	}
 
-	public void playerLeft(Player who) {
+	void playerLeft(Player who) {
 		UUID id = who.getUniqueId();
 		if (sessions.containsKey(id)) {
 			SessionContext ctx = sessions.get(id);
@@ -32,6 +32,21 @@ public class SessionManager {
 			}
 			sessions.remove(id);
 		}
+	}
+
+	public boolean registerContext(Player who, SessionContext context) {
+		synchronized (this) {
+			if (!isRunning)
+				return false;
+		}
+		UUID id = who.getUniqueId();
+		if (sessions.containsKey(id)) {
+			if (sessions.get(id) != null) {
+				return false;
+			}
+		}
+		sessions.put(id, context);
+		return true;
 	}
 
 	void kill() {
@@ -46,6 +61,10 @@ public class SessionManager {
 		sessions.clear();
 	}
 
+	boolean isOccupied(Player player) {
+		return sessions.containsKey(player.getUniqueId());
+	}
+
 	private boolean isRunning = true;
-	private HashMap<UUID, SessionContext> sessions = new HashMap<>();
+	private final ConcurrentHashMap<UUID, SessionContext> sessions = new ConcurrentHashMap<>();
 }
