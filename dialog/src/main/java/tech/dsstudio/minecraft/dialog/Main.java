@@ -17,7 +17,7 @@ public class Main extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		manager = new SessionManager();
+		manager = new SessionManager(this);
 		EventHandlers handlers = new EventHandlers(manager);
 		this.getServer().getPluginManager().registerEvents(handlers, this);
 	}

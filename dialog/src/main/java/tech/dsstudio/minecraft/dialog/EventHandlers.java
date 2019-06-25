@@ -1,6 +1,7 @@
 package tech.dsstudio.minecraft.dialog;
 
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerKickEvent;
@@ -11,7 +12,7 @@ public class EventHandlers implements Listener {
 		this.manager = manager;
 	}
 
-	@EventHandler
+	@EventHandler(priority = EventPriority.MONITOR)
 	public void onPlayerTalk(AsyncPlayerChatEvent e) {
 		e.setCancelled(manager.playerTalked(e.getPlayer(), e.getMessage()));
 	}
