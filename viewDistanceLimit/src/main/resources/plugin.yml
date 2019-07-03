@@ -1,0 +1,6 @@
+name: ViewDistanceLimit
+main: tech.dsstudio.minecraft.viewDistanceLimit.Main
+version: 0.1-INTERNAL
+authors:
+  - Ghost_chu
+  - dousha99

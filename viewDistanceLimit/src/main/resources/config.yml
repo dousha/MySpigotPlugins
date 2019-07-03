@@ -1,0 +1,15 @@
+silent: yes # 不向玩家发送提示
+world:
+  w1: #世界名称
+    enabled: true #是否启用
+    limit: 4 #启用后限制到多少
+    showMessage: true #是否显示警告信息
+    passportIngore: false #拥有权限的玩家是否可以忽略检测？
+    title: "§c视野受限"
+    subtitle: "§b此世界已被废弃 请勿过多在此逗留"
+pass:
+  #拥有权限的玩家动态给予视野距离 覆盖服务器原本设置
+  limit: 16
+default:
+  #无权限玩家给予的视野距离 覆盖服务器原本设置
+  limit: 10

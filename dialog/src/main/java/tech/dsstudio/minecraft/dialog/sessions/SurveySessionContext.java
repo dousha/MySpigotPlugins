@@ -6,6 +6,7 @@ import tech.dsstudio.minecraft.dialog.SessionContext;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class SurveySessionContext implements SessionContext {
@@ -47,23 +48,40 @@ public class SurveySessionContext implements SessionContext {
 		private Predicate<String> formatter;
 	}
 
-	public SurveySessionContext(List<SurveyEntry> entries) {
+	public SurveySessionContext(Consumer<List<String>> callback) {
+		this.callback = callback;
+		this.entries = null;
+	}
+
+	public SurveySessionContext(Consumer<List<String>> callback, List<SurveyEntry> entries) {
 		this.entries = entries;
+		this.callback = callback;
 	}
 
 	@Override
 	public void initialize(Player player) {
-
+		this.uuid = player.getUniqueId();
+		player.sendMessage(entries.get(currentIndex).question);
 	}
 
 	@Override
 	public void terminate(UUID uuid) {
-
+		callback.accept(null);
 	}
 
 	@Override
 	public boolean advance(Player player, String msg) {
-		return false;
+		if (entries.get(currentIndex).formatter.test(msg)) {
+			++currentIndex;
+			if (currentIndex == entries.size()) {
+				return false;
+			} else {
+				player.sendMessage(entries.get(currentIndex).question);
+				return true;
+			}
+		} else {
+			return true;
+		}
 	}
 
 	@Override
@@ -71,5 +89,8 @@ public class SurveySessionContext implements SessionContext {
 		return false;
 	}
 
+	private Consumer<List<String>> callback;
 	private List<SurveyEntry> entries;
+	private int currentIndex = 0;
+	private UUID uuid;
 }
