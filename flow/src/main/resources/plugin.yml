@@ -1,0 +1,4 @@
+name: libFlow
+version: 0.1-BLEEDING
+main: tech.dsstudio.minecraft.flow.Main
+author: dousha99
