@@ -30,6 +30,13 @@ public class Main extends JavaPlugin implements Listener {
 		}
 	}
 
+	@Override
+	public void onDisable() {
+		if (storage != null) {
+			storage.save();
+		}
+	}
+
 	public void registerDriver(PlayerDataStorage storage) {
 		this.storage = storage;
 	}
