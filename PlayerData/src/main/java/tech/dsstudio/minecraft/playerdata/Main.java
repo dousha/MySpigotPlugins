@@ -4,9 +4,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.Nullable;
 import tech.dsstudio.minecraft.playerdata.driver.PlayerDataStorage;
 import tech.dsstudio.minecraft.playerdata.driver.SimpleFileStorage;
 import tech.dsstudio.minecraft.playerdata.events.RequestForDriverEvent;
+import tech.dsstudio.minecraft.playerdata.events.RequestForStorageEvent;
 import tech.dsstudio.minecraft.playerdata.events.StorageReadyEvent;
 
 import java.util.logging.Level;
@@ -28,6 +30,7 @@ public class Main extends JavaPlugin implements Listener {
 				}
 			}, autoSaveInterval, autoSaveInterval);
 		}
+		instance = this;
 	}
 
 	@Override
@@ -50,6 +53,15 @@ public class Main extends JavaPlugin implements Listener {
 
 	@EventHandler(priority = EventPriority.MONITOR)
 	public void onDriverRequestFinished(RequestForDriverEvent event) {
+		broadcastStorage();
+	}
+
+	@EventHandler
+	public void onStorageRequest(RequestForStorageEvent e) {
+		broadcastStorage();
+	}
+
+	private void broadcastStorage() {
 		if (storage != null) {
 			while (!storage.ready()) {
 				nop();
@@ -73,6 +85,12 @@ public class Main extends JavaPlugin implements Listener {
 		}
 	}
 
-	private PlayerDataStorage storage = null;
+	@Nullable
+	public static PlayerDataStorage getStorage() {
+		return instance.storage;
+	}
+
 	private static long nop_time = 0;
+	private static Main instance = null;
+	private PlayerDataStorage storage = null;
 }

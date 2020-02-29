@@ -14,6 +14,7 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitTask;
 import tech.dsstudio.minecraft.playerdata.PlayerData;
 import tech.dsstudio.minecraft.playerdata.driver.PlayerDataStorage;
+import tech.dsstudio.minecraft.playerdata.events.RequestForStorageEvent;
 import tech.dsstudio.minecraft.playerdata.events.StorageReadyEvent;
 import tech.dsstudio.minecraft.worldtimer.objects.WorldEffectDescriptor;
 import tech.dsstudio.minecraft.worldtimer.objects.WorldLimitDescriptor;
@@ -28,6 +29,7 @@ public class Main extends JavaPlugin implements Listener {
 	public void onEnable() {
 		saveDefaultConfig();
 		getServer().getPluginManager().registerEvents(this, this);
+		getServer().getPluginManager().callEvent(new RequestForStorageEvent());
 	}
 
 	@EventHandler
@@ -56,14 +58,26 @@ public class Main extends JavaPlugin implements Listener {
 			bar.addPlayer(player);
 			bar.setProgress(1.00);
 			double secondFraction = 1.0 / ((double) descriptor.limit);
-			BukkitTask barUpdater = getServer().getScheduler().runTaskTimer(this, () -> bar.setProgress(bar.getProgress() <= 0.0 ? 0.0 : bar.getProgress() - secondFraction), 20L,20L);
+			BukkitTask barUpdater = getServer().getScheduler().runTaskTimer(this, () -> {
+				double nextProgress = bar.getProgress() - secondFraction;
+				if (nextProgress <= 0.0) {
+					nextProgress = 0.0;
+				}
+				bar.setProgress(nextProgress);
+				}, 20L,20L);
 			tasks.add(barUpdater);
 			data.setVolatile(TASKS_KEY_NAME, tasks);
+			data.setVolatile(BOSS_BAR_KEY_NAME, bar);
 		} else if (worlds.containsKey(fromWorldName) && !player.hasPermission("wtexempt")) {
-			WorldLimitDescriptor descriptor = worlds.get(targetWorldName);
+			WorldLimitDescriptor descriptor = worlds.get(fromWorldName);
 			ArrayList<BukkitTask> tasks = (ArrayList<BukkitTask>) data.getVolatile(TASKS_KEY_NAME);
 			if (tasks != null) {
 				tasks.forEach(BukkitTask::cancel);
+			}
+			BossBar bar = (BossBar) data.getVolatile(BOSS_BAR_KEY_NAME);
+			if (bar != null) {
+				bar.removePlayer(player);
+				bar.setVisible(false);
 			}
 			if (!descriptor.lingering) {
 				// clear all
@@ -103,4 +117,5 @@ public class Main extends JavaPlugin implements Listener {
 	private PlayerDataStorage storage = null;
 	private HashMap<String, WorldLimitDescriptor> worlds = new HashMap<>();
 	private static final String TASKS_KEY_NAME = "wtTasks";
+	private static final String BOSS_BAR_KEY_NAME = "wtBossBar";
 }

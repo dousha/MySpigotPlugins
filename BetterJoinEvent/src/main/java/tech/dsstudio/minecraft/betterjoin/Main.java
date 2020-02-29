@@ -28,11 +28,9 @@ public class Main extends JavaPlugin implements Listener {
 			Object obj = data.get(LAST_TIME_JOIN_KEY);
 			PlayerRejoinEvent event;
 			if (obj != null) {
-				getLogger().info("Hello again!");
 				long lastTime = (long) obj;
 				event = new PlayerRejoinEvent(e, false, lastTime);
 			} else {
-				getLogger().info("Hello!");
 				event = new PlayerRejoinEvent(e, true, 0L);
 			}
 			data.set(LAST_TIME_JOIN_KEY, System.currentTimeMillis());
