@@ -1,0 +1,3 @@
+name: BetterJoinEvent
+main: tech.dsstudio.minecraft.betterjoin.Main
+version: 0.1-INTERNAL
