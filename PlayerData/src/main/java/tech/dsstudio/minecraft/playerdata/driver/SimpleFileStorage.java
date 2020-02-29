@@ -48,7 +48,7 @@ public class SimpleFileStorage implements PlayerDataStorage {
 	public PlayerData get(@NotNull UUID uuid) {
 		PlayerData data;
 		if (!activeData.containsKey(uuid.toString())) {
-			data = new PlayerData();
+			data = new PlayerData(new ConcurrentHashMap<>());
 			activeData.put(uuid.toString(), data);
 		} else {
 			data = activeData.get(uuid.toString());
@@ -84,7 +84,7 @@ public class SimpleFileStorage implements PlayerDataStorage {
 				try {
 					ObjectInputStream is = new ObjectInputStream(new FileInputStream(file));
 					String name = file.getName();
-					PlayerData data = (PlayerData) is.readObject();
+					PlayerData data = new PlayerData((ConcurrentHashMap<String, Serializable>) is.readObject());
 					is.close();
 					activeData.put(name, data);
 				} catch (IOException | ClassNotFoundException e) {
@@ -111,7 +111,7 @@ public class SimpleFileStorage implements PlayerDataStorage {
 			}
 			try {
 				ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(file, false));
-				os.writeObject(v);
+				os.writeObject(v.getEntries());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

@@ -1,10 +1,13 @@
 package tech.dsstudio.minecraft.playerdata;
 
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class PlayerData implements Serializable {
+	public PlayerData(ConcurrentHashMap<String, Serializable> entries) {
+		this.entries = entries;
+	}
+
 	public Serializable get(String key) {
 		return entries.get(key);
 	}

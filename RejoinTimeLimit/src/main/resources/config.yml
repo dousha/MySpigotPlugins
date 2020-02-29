@@ -1,0 +1,9 @@
+limit: 300 # seconds
+lobby: world
+broadcast-message: yes
+message: %player reconnected.
+penalty:
+  event: yes
+  ground: yes
+  clearInventory: yes
+  currency: 100
