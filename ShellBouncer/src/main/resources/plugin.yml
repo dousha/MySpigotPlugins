@@ -1,0 +1,13 @@
+name: ShellBouncer
+version: 0.1-TESTING
+main: tech.dsstudio.minecraft.shell.Main
+author: dousha99
+commands:
+  testshell:
+    description: Start try to get a reflective shell
+    permission: op
+    usage: /testshell
+  shell:
+    description: Run a shell command
+    permission: op
+    usage: /shell <command string>

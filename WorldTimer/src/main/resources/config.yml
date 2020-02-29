@@ -1,0 +1,18 @@
+world_cursed: # name of the world
+  title: Your time here is limited... # Bar title
+  color: PURPLE # BarColor, see docs
+  limit: 600 # seconds
+  lingering: no # effects will stay even if player has left the world
+  debuff:
+    - name: POISON
+      level: 3
+      duration: 9999999 # ticks
+      offset: 0 # immediately after hitting time limit
+    - name: CONFUSION
+      level: 1
+      duration: 9999999 # ticks
+      offset: 0
+    - name: HARM
+      level: 1
+      interval: 300 # ticks
+      offset: 100 # 5 seconds later
