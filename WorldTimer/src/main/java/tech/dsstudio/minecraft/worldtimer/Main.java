@@ -105,7 +105,7 @@ public class Main extends JavaPlugin implements Listener {
 	}
 
 	private void removeBossBar(Player player, PlayerData data) {
-		BossBar bar = (BossBar) data.get(BOSS_BAR_KEY_NAME);
+		BossBar bar = (BossBar) data.getVolatile(BOSS_BAR_KEY_NAME);
 		if (bar != null) {
 			bar.setVisible(false);
 			bar.removePlayer(player);
@@ -114,7 +114,7 @@ public class Main extends JavaPlugin implements Listener {
 			// wtf?
 			getLogger().warning("Inconsistent state! No boss bar found!");
 		}
-		TaskDescriptor updater = (TaskDescriptor) data.get(BOSS_BAR_TASK_KEY_NAME);
+		TaskDescriptor updater = (TaskDescriptor) data.getVolatile(BOSS_BAR_TASK_KEY_NAME);
 		if (updater != null) {
 			updater.cancel();
 			data.setVolatile(BOSS_BAR_TASK_KEY_NAME, null);
@@ -198,8 +198,8 @@ public class Main extends JavaPlugin implements Listener {
 			section.getList("debuff").stream().map(it -> (LinkedHashMap<String, Object>) it).forEach(map -> {
 				WorldEffectDescriptor desc = new WorldEffectDescriptor();
 				desc.effect = new PotionEffect(PotionEffectType.getByName((String) map.get("name")),
-						(int) map.getOrDefault("level", 1),
-						(int) map.getOrDefault("duration", 100));
+						(int) map.getOrDefault("duration", 100),
+						(int) map.getOrDefault("level", 1));
 				desc.interval = (int) map.getOrDefault("interval", map.getOrDefault("duration", 100));
 				desc.offset = (int) map.getOrDefault("offset", 0);
 				getLogger().info(desc.toString());
