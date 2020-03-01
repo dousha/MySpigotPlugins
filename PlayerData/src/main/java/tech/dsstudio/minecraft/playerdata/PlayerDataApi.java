@@ -13,7 +13,7 @@ import tech.dsstudio.minecraft.playerdata.events.StorageReadyEvent;
 
 import java.util.logging.Level;
 
-public class Main extends JavaPlugin implements Listener {
+public class PlayerDataApi extends JavaPlugin implements Listener {
 	@Override
 	public void onEnable() {
 		saveDefaultConfig();
@@ -53,6 +53,7 @@ public class Main extends JavaPlugin implements Listener {
 
 	@EventHandler(priority = EventPriority.MONITOR)
 	public void onDriverRequestFinished(RequestForDriverEvent event) {
+		isPluginLoaded = true;
 		broadcastStorage();
 	}
 
@@ -62,16 +63,20 @@ public class Main extends JavaPlugin implements Listener {
 	}
 
 	private void broadcastStorage() {
-		if (storage != null) {
-			while (!storage.ready()) {
-				nop();
+		if (isPluginLoaded) {
+			if (storage != null) {
+				while (!storage.ready()) {
+					nop();
+				}
+				storage.load();
+				getServer().getPluginManager().callEvent(new StorageReadyEvent(storage));
+				getLogger().info("Storage engine ready");
+			} else {
+				// wtf?
+				getLogger().log(Level.SEVERE, "No storage driver was registered!");
 			}
-			storage.load();
-			getServer().getPluginManager().callEvent(new StorageReadyEvent(storage));
-			getLogger().info("Storage engine ready");
 		} else {
-			// wtf?
-			getLogger().log(Level.SEVERE, "No storage driver was registered!");
+			getLogger().info("Waiting for storage engine");
 		}
 	}
 
@@ -91,6 +96,7 @@ public class Main extends JavaPlugin implements Listener {
 	}
 
 	private static long nop_time = 0;
-	private static Main instance = null;
+	private static PlayerDataApi instance = null;
 	private PlayerDataStorage storage = null;
+	private boolean isPluginLoaded = false;
 }

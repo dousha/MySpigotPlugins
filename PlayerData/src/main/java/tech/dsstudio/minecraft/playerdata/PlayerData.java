@@ -56,6 +56,14 @@ public class PlayerData implements Serializable {
 		return data.entries.keySet().equals(this.entries.keySet());
 	}
 
+	public boolean hasKey(String key) {
+		return entries.containsKey(key);
+	}
+
+	public boolean hasVolatileKey(String key) {
+		return volatileEntries.containsKey(key);
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof PlayerData) {

@@ -1,0 +1,5 @@
+name: OnlineTimeTracker
+main: tech.dsstudio.minecraft.tracker.Main
+version: 0.1-SNAPSHOT
+depend:
+  - PlayerTaskHook

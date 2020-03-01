@@ -1,5 +1,5 @@
 name: PlayerData
-main: tech.dsstudio.minecraft.playerdata.Main
+main: tech.dsstudio.minecraft.playerdata.PlayerDataApi
 version: 0.3-SNAPSHOT
 author: dousha99
 description: Abstraction layer for persistent player data storage
