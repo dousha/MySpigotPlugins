@@ -1,47 +1,35 @@
 package tech.dsstudio.minecraft.taskhook;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 import java.util.UUID;
 
-public class TaskDescriptor implements Comparable<TaskDescriptor> {
+public class TaskDescriptor {
 	JavaPlugin owner;
 	Runnable runnable;
 	long delay;
 	boolean repeat;
 	long interval;
 	UUID playerUuid;
+	UUID taskId;
 
 	long assignedTime;
 	long executionTime;
 	long remainingWaitTime;
 	boolean needRemoval = false;
-	boolean isRunning = false;
-
-	@Override
-	public int compareTo(@NotNull TaskDescriptor descriptor) {
-		return (int) (this.assignedTime - descriptor.assignedTime);
-	}
 
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		TaskDescriptor that = (TaskDescriptor) o;
-		return delay == that.delay &&
-				repeat == that.repeat &&
-				interval == that.interval &&
-				assignedTime == that.assignedTime &&
-				owner.equals(that.owner) &&
-				runnable.equals(that.runnable) &&
-				playerUuid.equals(that.playerUuid);
+		return taskId.equals(that.taskId);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(owner, runnable, delay, repeat, interval, assignedTime, playerUuid);
+		return Objects.hash(owner, runnable, delay, repeat, interval, playerUuid, taskId);
 	}
 
 	public void suspend() {

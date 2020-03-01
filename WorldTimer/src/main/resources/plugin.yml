@@ -4,6 +4,7 @@ version: 0.1-INTERNAL
 description: Put a time limit on a stay!
 depend:
   - PlayerData
+  - PlayerTaskHook
 
 permissions:
   wtexempt:

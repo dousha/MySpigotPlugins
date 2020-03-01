@@ -11,7 +11,6 @@ import org.bukkit.scheduler.BukkitTask;
 
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
@@ -24,6 +23,7 @@ public class PlayerTaskHookApi extends JavaPlugin implements Listener {
 			// this might cause a serious performance issue
 			long current = currentTick.getAndIncrement();
 			activeTasks.forEachValue(8, tasks -> {
+				tasks.removeAll(tasks.stream().filter(task -> task.needRemoval).collect(Collectors.toSet()));
 				tasks.forEach(task -> {
 					task.remainingWaitTime = task.executionTime - current;
 					if (task.remainingWaitTime <= 0) {
@@ -36,7 +36,6 @@ public class PlayerTaskHookApi extends JavaPlugin implements Listener {
 						}
 					}
 				});
-				tasks.removeAll(tasks.stream().filter(task -> task.needRemoval).collect(Collectors.toSet()));
 			});
 		}, 1L, 1L);
 		getLogger().info("PlayerTaskHook loaded");
@@ -53,7 +52,7 @@ public class PlayerTaskHookApi extends JavaPlugin implements Listener {
 		if (suspendedTasks.containsKey(uuid)) {
 			// resume all
 			getLogger().info("Resuming tasks for " + uuid.toString());
-			ConcurrentSkipListSet<TaskDescriptor> tasks = suspendedTasks.get(uuid);
+			ConcurrentHashSet<TaskDescriptor> tasks = suspendedTasks.get(uuid);
 			suspendedTasks.remove(uuid);
 			tasks.forEach(task -> task.assignedTime = currentTick.get() - task.remainingWaitTime);
 			activeTasks.put(uuid, tasks);
@@ -66,7 +65,7 @@ public class PlayerTaskHookApi extends JavaPlugin implements Listener {
 		if (activeTasks.containsKey(uuid)) {
 			// suspend all
 			getLogger().info("Suspending tasks for " + uuid.toString());
-			ConcurrentSkipListSet<TaskDescriptor> tasks = activeTasks.get(uuid);
+			ConcurrentHashSet<TaskDescriptor> tasks = activeTasks.get(uuid);
 			activeTasks.remove(uuid);
 			suspendedTasks.put(uuid, tasks);
 		}
@@ -74,6 +73,7 @@ public class PlayerTaskHookApi extends JavaPlugin implements Listener {
 
 	public static TaskDescriptor runTaskLater(JavaPlugin owner, Player player, Runnable work, long delay) {
 		TaskDescriptor descriptor = new TaskDescriptor();
+		descriptor.taskId = UUID.randomUUID();
 		descriptor.owner = owner;
 		descriptor.runnable = work;
 		descriptor.delay = delay;
@@ -83,13 +83,13 @@ public class PlayerTaskHookApi extends JavaPlugin implements Listener {
 		descriptor.playerUuid = player.getUniqueId();
 		descriptor.assignedTime = currentTick.get();
 		descriptor.executionTime = descriptor.assignedTime + descriptor.delay;
-		descriptor.isRunning = true;
-		instance.activeTasks.computeIfAbsent(player.getUniqueId(), (k) -> new ConcurrentSkipListSet<>()).add(descriptor);
+		instance.activeTasks.computeIfAbsent(descriptor.playerUuid, (k) -> new ConcurrentHashSet<>()).add(descriptor);
 		return descriptor;
 	}
 
 	public static TaskDescriptor runTaskTimer(JavaPlugin owner, Player player, Runnable work, long delay, long interval) {
 		TaskDescriptor descriptor = new TaskDescriptor();
+		descriptor.taskId = UUID.randomUUID();
 		descriptor.owner = owner;
 		descriptor.runnable = work;
 		descriptor.delay = delay;
@@ -99,32 +99,41 @@ public class PlayerTaskHookApi extends JavaPlugin implements Listener {
 		descriptor.playerUuid = player.getUniqueId();
 		descriptor.assignedTime = currentTick.get();
 		descriptor.executionTime = descriptor.assignedTime + descriptor.delay;
-		descriptor.isRunning = true;
-		instance.activeTasks.computeIfAbsent(player.getUniqueId(), (k) -> new ConcurrentSkipListSet<>()).add(descriptor);
+		instance.activeTasks.computeIfAbsent(descriptor.playerUuid, (k) -> new ConcurrentHashSet<>()).add(descriptor);
 		return descriptor;
 	}
 
 	public static void suspend(TaskDescriptor descriptor) {
-		instance.activeTasks.computeIfAbsent(descriptor.playerUuid, k -> new ConcurrentSkipListSet<>()).remove(descriptor);
-		instance.suspendedTasks.computeIfAbsent(descriptor.playerUuid, k -> new ConcurrentSkipListSet<>()).add(descriptor);
-		descriptor.isRunning = false;
+		try {
+			instance.activeTasks.get(descriptor.playerUuid).remove(descriptor);
+			if (!instance.suspendedTasks.containsKey(descriptor.playerUuid)) {
+				instance.suspendedTasks.put(descriptor.playerUuid, new ConcurrentHashSet<>());
+			}
+			instance.suspendedTasks.get(descriptor.playerUuid).add(descriptor);
+		} catch (NullPointerException ex) {
+			instance.getLogger().warning("Trying to suspend a task that was not active for this player");
+			ex.printStackTrace();
+		}
 	}
 
 	public static void resume(TaskDescriptor descriptor) {
-		instance.suspendedTasks.computeIfAbsent(descriptor.playerUuid, k -> new ConcurrentSkipListSet<>()).remove(descriptor);
-		descriptor.assignedTime = currentTick.get() - descriptor.remainingWaitTime;
-		instance.activeTasks.computeIfAbsent(descriptor.playerUuid, k -> new ConcurrentSkipListSet<>()).add(descriptor);
-		descriptor.isRunning = true;
+		try {
+			instance.suspendedTasks.computeIfAbsent(descriptor.playerUuid, k -> new ConcurrentHashSet<>()).remove(descriptor);
+			descriptor.assignedTime = currentTick.get() - descriptor.remainingWaitTime;
+			instance.activeTasks.computeIfAbsent(descriptor.playerUuid, k -> new ConcurrentHashSet<>()).add(descriptor);
+		} catch (NullPointerException ex) {
+			instance.getLogger().warning("Trying to resume a task that was not suspended for this player");
+			ex.printStackTrace();
+		}
 	}
 
 	public static void cancel(TaskDescriptor descriptor) {
 		descriptor.needRemoval = true;
-		instance.activeTasks.computeIfAbsent(descriptor.playerUuid, k -> new ConcurrentSkipListSet<>()).remove(descriptor);
-		descriptor.isRunning = false;
+		instance.activeTasks.computeIfAbsent(descriptor.playerUuid, k -> new ConcurrentHashSet<>()).remove(descriptor);
 	}
 
-	private ConcurrentHashMap<UUID, ConcurrentSkipListSet<TaskDescriptor>> suspendedTasks = new ConcurrentHashMap<>();
-	private ConcurrentHashMap<UUID, ConcurrentSkipListSet<TaskDescriptor>> activeTasks = new ConcurrentHashMap<>();
+	private ConcurrentHashMap<UUID, ConcurrentHashSet<TaskDescriptor>> suspendedTasks = new ConcurrentHashMap<>();
+	private ConcurrentHashMap<UUID, ConcurrentHashSet<TaskDescriptor>> activeTasks = new ConcurrentHashMap<>();
 	private BukkitTask masterTask = null;
 	private static PlayerTaskHookApi instance = null;
 	private static AtomicLong currentTick = new AtomicLong(0L);
