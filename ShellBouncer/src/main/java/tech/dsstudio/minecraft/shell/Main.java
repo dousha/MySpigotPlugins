@@ -3,6 +3,7 @@ package tech.dsstudio.minecraft.shell;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
+import tech.dsstudio.minecraft.shell.bouncer.JavaBouncer;
 import tech.dsstudio.minecraft.shell.reflector.DirectReflector;
 import tech.dsstudio.minecraft.shell.reflector.Reflector;
 
@@ -34,6 +35,20 @@ public class Main extends JavaPlugin {
 					sender.sendMessage("No reflector available now!");
 				} else {
 					sender.sendMessage(reflector.execute(args));
+				}
+				return true;
+			case "bshell":
+				if (reflector == null) {
+					sender.sendMessage("No reflector available now!");
+				} else {
+					if (args.length != 2) {
+						sender.sendMessage("Bad argument");
+					} else {
+						sender.sendMessage("Connecting to " + args[0] + ":" + args[1]);
+						sender.sendMessage("Good luck");
+						JavaBouncer bouncer = new JavaBouncer(args[0], args[1]);
+						bouncer.start();
+					}
 				}
 				return true;
 			default:

@@ -9,11 +9,11 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
-import tech.dsstudio.minecraft.playerdata.events.RequestForStorageEvent;
+import tech.dsstudio.minecraft.taskhook.PlayerTaskHookApi;
 
-import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
-import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Main extends JavaPlugin implements Listener {
 	@Override
@@ -29,7 +29,7 @@ public class Main extends JavaPlugin implements Listener {
 			BossBar bar = getServer().createBossBar("Test", BarColor.BLUE, BarStyle.SOLID);
 			bar.setProgress(1.00);
 			double fraction = 1.0 / 60000.0;
-			tech.dsstudio.minecraft.taskhook.Main.runTaskTimer(this, player, () -> {
+			PlayerTaskHookApi.runTaskTimer(this, player, () -> {
 				double newProgress = bar.getProgress() - fraction;
 				if (newProgress <= 0.0) {
 					newProgress = 0.0;
@@ -41,5 +41,5 @@ public class Main extends JavaPlugin implements Listener {
 		}
 	}
 
-	private ConcurrentSkipListSet<UUID> tracking = new ConcurrentSkipListSet<>();
+	private Set<UUID> tracking = ConcurrentHashMap.newKeySet();
 }

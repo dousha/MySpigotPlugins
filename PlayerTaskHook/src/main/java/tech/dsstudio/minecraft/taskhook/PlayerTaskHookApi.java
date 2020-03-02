@@ -15,6 +15,10 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
 public class PlayerTaskHookApi extends JavaPlugin implements Listener {
+	public PlayerTaskHookApi() {
+		instance = this;
+	}
+
 	@Override
 	public void onEnable() {
 		getServer().getPluginManager().registerEvents(this, this);
@@ -72,6 +76,9 @@ public class PlayerTaskHookApi extends JavaPlugin implements Listener {
 	}
 
 	public static TaskDescriptor runTaskLater(JavaPlugin owner, Player player, Runnable work, long delay) {
+		if (instance == null) {
+			throw new IllegalStateException("Task was assigned before plugin was loaded");
+		}
 		TaskDescriptor descriptor = new TaskDescriptor();
 		descriptor.taskId = UUID.randomUUID();
 		descriptor.owner = owner;
@@ -88,6 +95,9 @@ public class PlayerTaskHookApi extends JavaPlugin implements Listener {
 	}
 
 	public static TaskDescriptor runTaskTimer(JavaPlugin owner, Player player, Runnable work, long delay, long interval) {
+		if (instance == null) {
+			throw new IllegalStateException("Task was assigned before plugin was loaded");
+		}
 		TaskDescriptor descriptor = new TaskDescriptor();
 		descriptor.taskId = UUID.randomUUID();
 		descriptor.owner = owner;

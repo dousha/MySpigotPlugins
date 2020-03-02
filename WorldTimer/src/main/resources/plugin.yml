@@ -1,6 +1,6 @@
 name: WorldTimer
 main: tech.dsstudio.minecraft.worldtimer.Main
-version: 0.1-INTERNAL
+version: 0.2-INTERNAL
 description: Put a time limit on a stay!
 depend:
   - PlayerData

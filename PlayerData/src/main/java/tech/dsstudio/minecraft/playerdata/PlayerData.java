@@ -1,14 +1,17 @@
 package tech.dsstudio.minecraft.playerdata;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.io.Serializable;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class PlayerData implements Serializable {
 	public PlayerData(ConcurrentHashMap<String, Serializable> entries) {
 		this.entries = entries;
+		this.volatileEntries = new ConcurrentHashMap<>();
 	}
 
-	public Serializable get(String key) {
+	@Nullable public Serializable get(String key) {
 		return entries.get(key);
 	}
 
@@ -16,7 +19,7 @@ public class PlayerData implements Serializable {
 		return entries.getOrDefault(key, def);
 	}
 
-	public Object getVolatile(String key) {
+	@Nullable public Object getVolatile(String key) {
 		return volatileEntries.get(key);
 	}
 
@@ -81,6 +84,6 @@ public class PlayerData implements Serializable {
 	}
 
 	// XXX: Better typing?
-	private ConcurrentHashMap<String, Serializable> entries = new ConcurrentHashMap<>();
-	private ConcurrentHashMap<String, Object> volatileEntries = new ConcurrentHashMap<>();
+	private ConcurrentHashMap<String, Serializable> entries;
+	private ConcurrentHashMap<String, Object> volatileEntries;
 }

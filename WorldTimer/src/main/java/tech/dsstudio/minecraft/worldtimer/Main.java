@@ -13,6 +13,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.jetbrains.annotations.NotNull;
 import tech.dsstudio.minecraft.playerdata.PlayerData;
 import tech.dsstudio.minecraft.playerdata.driver.PlayerDataStorage;
 import tech.dsstudio.minecraft.playerdata.events.RequestForStorageEvent;
@@ -21,13 +22,13 @@ import tech.dsstudio.minecraft.taskhook.PlayerTaskHookApi;
 import tech.dsstudio.minecraft.taskhook.TaskDescriptor;
 import tech.dsstudio.minecraft.worldtimer.objects.WorldEffectDescriptor;
 import tech.dsstudio.minecraft.worldtimer.objects.WorldLimitDescriptor;
+import tech.dsstudio.minecraft.worldtimer.runnables.MasterRunnable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.stream.Collectors;
 
 public class Main extends JavaPlugin implements Listener {
 	@Override
@@ -72,10 +73,14 @@ public class Main extends JavaPlugin implements Listener {
 		}
 	}
 
-	private void applyWorldLimit(Player player, PlayerData data) {
+	private void applyWorldLimit(@NotNull Player player, @NotNull PlayerData data) {
 		if (data.hasKey(WORLD_KEY_NAME)) {
 			String worldName = data.getString(WORLD_KEY_NAME);
 			WorldLimitDescriptor limitDescriptor = limitDescriptors.get(worldName);
+			if (limitDescriptor == null) {
+				getLogger().info("World " + worldName + " is not a limited world, why are you doing this?");
+				return;
+			}
 			setMasterTimer(player, data, limitDescriptor);
 			setBossBarUpdater(player, data, limitDescriptor);
 			getLogger().info("Player " + player.getDisplayName() + " entered a timed world");
@@ -84,7 +89,7 @@ public class Main extends JavaPlugin implements Listener {
 		}
 	}
 
-	private void removeWorldLimit(Player player, PlayerData data, WorldLimitDescriptor descriptor) {
+	private void removeWorldLimit(@NotNull Player player, @NotNull PlayerData data, @NotNull WorldLimitDescriptor descriptor) {
 		if (data.hasVolatileKey(MASTER_TASK_KEY_NAME)) {
 			TaskDescriptor master = (TaskDescriptor) data.getVolatile(MASTER_TASK_KEY_NAME);
 			master.cancel();
@@ -104,7 +109,7 @@ public class Main extends JavaPlugin implements Listener {
 		}
 	}
 
-	private void removeBossBar(Player player, PlayerData data) {
+	private void removeBossBar(@NotNull Player player, @NotNull PlayerData data) {
 		BossBar bar = (BossBar) data.getVolatile(BOSS_BAR_KEY_NAME);
 		if (bar != null) {
 			bar.setVisible(false);
@@ -121,8 +126,12 @@ public class Main extends JavaPlugin implements Listener {
 		}
 	}
 
-	private void updateWorldLimit(Player player) {
+	private void updateWorldLimit(@NotNull Player player) {
 		PlayerData data = storage.get(player.getUniqueId());
+		if (data == null) {
+			getLogger().warning("Incosistent state! Player data is not loaded");
+			return;
+		}
 		String currentWorldName = player.getWorld().getName();
 		if (data.hasKey(WORLD_KEY_NAME)) {
 			String lastWorldName = data.getString(WORLD_KEY_NAME);
@@ -134,7 +143,7 @@ public class Main extends JavaPlugin implements Listener {
 				}
 			} else {
 				// player entered the game, and config seems to be updated
-				if (!data.hasVolatileKey(MASTER_TASK_KEY_NAME)) {
+				if (limitDescriptors.containsKey(currentWorldName) && !data.hasVolatileKey(MASTER_TASK_KEY_NAME)) {
 					applyWorldLimit(player, data);
 				} // the task would resume otherwise
 			}
@@ -147,28 +156,14 @@ public class Main extends JavaPlugin implements Listener {
 		}
 	}
 
-	private void setMasterTimer(Player player, PlayerData data, WorldLimitDescriptor descriptor) {
-		data.setVolatile(
-				MASTER_TASK_KEY_NAME,
-				PlayerTaskHookApi.runTaskLater(
-						this,
-						player,
-						() -> data.setVolatile(
-								CHILD_TASK_KEY_NAME,
-								descriptor
-										.debuff
-										.stream()
-										.map(debuff -> PlayerTaskHookApi
-												.runTaskTimer(
-														this,
-														player,
-														() -> player.addPotionEffect(debuff.effect),
-														debuff.offset, debuff.interval))
-										.collect(Collectors.toList())),
-						descriptor.limit * 20));
+	private void setMasterTimer(@NotNull Player player, @NotNull PlayerData data, @NotNull WorldLimitDescriptor descriptor) {
+		Runnable masterRunnable = new MasterRunnable(this, player, data, descriptor);
+		final long limit = descriptor.limit * 20;
+		TaskDescriptor masterTask = PlayerTaskHookApi.runTaskLater(this, player, masterRunnable, limit);
+		data.setVolatile(MASTER_TASK_KEY_NAME, masterTask);
 	}
 
-	private void setBossBarUpdater(Player player, PlayerData data, WorldLimitDescriptor descriptor) {
+	private void setBossBarUpdater(@NotNull Player player, @NotNull PlayerData data, @NotNull WorldLimitDescriptor descriptor) {
 		BossBar bar = getServer().createBossBar(descriptor.title, descriptor.color, BarStyle.SOLID);
 		bar.setProgress(1.00);
 		bar.setVisible(true);
@@ -215,7 +210,7 @@ public class Main extends JavaPlugin implements Listener {
 	private PlayerDataStorage storage = null;
 	private HashMap<String, WorldLimitDescriptor> limitDescriptors = new HashMap<>();
 	private static final String MASTER_TASK_KEY_NAME = "wtMasterTask";
-	private static final String CHILD_TASK_KEY_NAME = "wtTasks";
+	public static final String CHILD_TASK_KEY_NAME = "wtTasks";
 	private static final String BOSS_BAR_TASK_KEY_NAME = "wtBossBarTask";
 	private static final String BOSS_BAR_KEY_NAME = "wtBossBar";
 	private static final String WORLD_KEY_NAME = "wtWorldName";
