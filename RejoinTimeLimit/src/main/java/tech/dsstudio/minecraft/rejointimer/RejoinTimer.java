@@ -62,10 +62,10 @@ public class RejoinTimer extends JavaPlugin implements Listener {
 			penaltyCount++;
 			data.set(PENALTY_MARK_KEY, penaltyCount);
 			if (getConfig().getBoolean("penalty.ground.enable")) {
-				data.set(GROUND_MARK_KEY, true);
+				data.setVolatile(GROUND_MARK_KEY, true);
 				long groundTime = getConfig().getLong("penalty.ground.duration") * 20;
 				PlayerTaskHookApi.runTaskLater(this, player, () -> {
-					data.set(GROUND_MARK_KEY, null);
+					data.setVolatile(GROUND_MARK_KEY, null);
 				}, groundTime);
 			}
 			if (getConfig().getBoolean("penalty.clearInventory.enable")) {
@@ -81,7 +81,7 @@ public class RejoinTimer extends JavaPlugin implements Listener {
 		if (storage != null) {
 			Player player = event.getPlayer();
 			PlayerData data = storage.get(player.getUniqueId());
-			if (data.hasKey(GROUND_MARK_KEY)) {
+			if (data.hasVolatileKey(GROUND_MARK_KEY)) {
 				if (!event.getTo().getWorld().getName().equals(event.getFrom().getWorld().getName())) {
 					event.setCancelled(true);
 					player.sendMessage(getConfig().getString("penalty.ground.message"));
