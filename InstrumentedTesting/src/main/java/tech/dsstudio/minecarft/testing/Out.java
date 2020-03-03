@@ -5,7 +5,7 @@ import org.bukkit.command.CommandSender;
 import java.util.Collection;
 import java.util.Map;
 
-public class IOUtils {
+public class Out {
 	public static void println(CommandSender sender) {
 		sender.sendMessage("");
 	}

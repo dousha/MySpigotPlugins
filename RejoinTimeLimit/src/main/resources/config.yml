@@ -1,9 +1,13 @@
 limit: 300 # seconds
 lobby: world
-broadcast-message: yes
-message: %player reconnected.
+message: 'You have left for too long and was sent back to spawn!'
+including-kicks: no
+worlds:
+  - world_pvp
 penalty:
-  event: yes
-  ground: yes
-  clearInventory: yes
-  currency: 100
+  ground:
+    enable: yes
+    duration: 60 # seconds
+    message: 'You cannot move to another world now'
+  clearInventory:
+    enable: yes

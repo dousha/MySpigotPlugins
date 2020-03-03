@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>tech.dsstudio.minecraft</groupId>
-    <artifactId>RejoinTimeLimit</artifactId>
+    <artifactId>InstrumentedTesting</artifactId>
     <version>0.1-SNAPSHOT</version>
 
     <build>
@@ -25,6 +25,10 @@
         <repository>
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>vault</id>
+            <url>http://nexus.hc.to/content/repositories/pub_releases/</url>
         </repository>
     </repositories>
 
@@ -51,9 +55,9 @@
             <version>0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>tech.dsstudio.minecraft</groupId>
-            <artifactId>BetterJoinEvent</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>net.milkbowl.vault</groupId>
+            <artifactId>Vault</artifactId>
+            <version>1.6.6</version>
         </dependency>
     </dependencies>
 </project>

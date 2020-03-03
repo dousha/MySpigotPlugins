@@ -1,0 +1,23 @@
+name: InstrumentedTesting
+main: tech.dsstudio.minecraft.testing.TestingApi
+version: 0.1-SNAPSHOT
+commands:
+  it:
+    description: Get or set values
+    usage: /it <subject> [get|set <value>]
+    permission: it.use
+    permission-message: Just don't
+  itc:
+    description: Compare expectation and result
+    usage: /itc <subject> <expected value>
+    permission: it.use
+    permission-message: Just don't
+  itr:
+    description: Run given test script
+    usage: /itr <script=test.yml>
+    permission: it.use
+    permission-message: Just don't
+permissions:
+  it.use:
+    description: Uses the instrumented testing commands
+    default: false

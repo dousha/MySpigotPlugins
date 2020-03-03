@@ -1,0 +1,23 @@
+version: 1
+tests:
+  test-1:
+    operation: compare
+    subject: player.dummy.health
+    expect: =20
+  test-2:
+    operation: modify
+    subject: player.dummy.effects
+    value:
+      - type: POISON
+        level: 0
+        duration: 114514
+      - type: CONFUSION
+        level: 0
+        duration: 8101919
+  test-3:
+    operation: wait
+    value: 6000
+  test-4:
+    operation: compare
+    subject: player.dummy.health
+    expect: <5

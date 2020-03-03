@@ -5,10 +5,11 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 public class PlayerRejoinEvent extends Event {
-	public PlayerRejoinEvent(PlayerJoinEvent e, boolean isFirstJoin, long lastJoinTimestamp) {
+	public PlayerRejoinEvent(PlayerJoinEvent e, boolean isFirstJoin, long lastJoinTimestamp, long lastLeaveTimestamp) {
 		this.event = e;
 		this.isFirstJoin = isFirstJoin;
 		this.lastJoinTimeMills = lastJoinTimestamp;
+		this.lastLeaveTimeMills = lastLeaveTimestamp;
 	}
 
 	@Override
@@ -28,6 +29,10 @@ public class PlayerRejoinEvent extends Event {
 		return lastJoinTimeMills;
 	}
 
+	public long getLastLeaveTimeMills() {
+		return lastLeaveTimeMills;
+	}
+
 	public boolean isFirstJoin() {
 		return isFirstJoin;
 	}
@@ -36,4 +41,5 @@ public class PlayerRejoinEvent extends Event {
 	private PlayerJoinEvent event;
 	private boolean isFirstJoin;
 	private long lastJoinTimeMills;
+	private long lastLeaveTimeMills;
 }

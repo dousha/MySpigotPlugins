@@ -1,3 +1,11 @@
 name: RejoinTimeLimit
 main: tech.dsstudio.minecraft.rejointimer.Main
 version: 0.1-SNAPSHOT
+depend:
+  - PlayerData
+  - BetterJoinEvent
+  - PlayerTaskHook
+permissions:
+  rjexempt:
+    description: Exempt from taking rejoin penalty
+    default: op
