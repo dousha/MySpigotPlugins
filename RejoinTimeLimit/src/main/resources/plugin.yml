@@ -1,5 +1,5 @@
 name: RejoinTimeLimit
-main: tech.dsstudio.minecraft.rejointimer.Main
+main: tech.dsstudio.minecraft.rejointimer.RejoinTimer
 version: 0.1-SNAPSHOT
 depend:
   - PlayerData
