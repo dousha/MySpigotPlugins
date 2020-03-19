@@ -28,10 +28,9 @@ public class RejoinTimer extends JavaPlugin implements Listener {
 	public void onEnable() {
 		saveDefaultConfig();
 		this.enabledWorlds = getConfig().getStringList("worlds");
-		this.lobby = getServer().getWorld(getConfig().getString("lobby")).getSpawnLocation();
 		this.kickAlsoCounts = getConfig().getBoolean("including-kicks");
 		this.message = getConfig().getString("message");
-		this.limit = getConfig().getLong("limit") * 1000;
+		this.limit = getConfig().getLong("limit") * 1000L;
 		getServer().getPluginManager().registerEvents(this, this);
 		getServer().getPluginManager().callEvent(new RequestForStorageEvent());
 	}
@@ -42,10 +41,10 @@ public class RejoinTimer extends JavaPlugin implements Listener {
 		if (monitoredPlayers.contains(player.getUniqueId())) {
 			if (System.currentTimeMillis() - event.getLastLeaveTimeMills() > limit && !player.hasPermission("rjexempt")) {
 				// fail
+				player.sendMessage(message);
+				player.teleport(getServer().getWorld(getConfig().getString("lobby")).getSpawnLocation());
 				PlayerRejoinTimedOutEvent timedOutEvent = new PlayerRejoinTimedOutEvent(player, event.getLastLeaveTimeMills());
 				getServer().getPluginManager().callEvent(timedOutEvent);
-				player.sendMessage(message);
-				player.teleport(lobby);
 			} else {
 				// pass
 				monitoredPlayers.remove(player.getUniqueId());
@@ -114,7 +113,6 @@ public class RejoinTimer extends JavaPlugin implements Listener {
 	private PlayerDataStorage storage = null;
 	private Set<UUID> monitoredPlayers = ConcurrentHashMap.newKeySet();
 	private List<String> enabledWorlds = null;
-	private Location lobby = null;
 	private boolean kickAlsoCounts = false;
 	private String message = null;
 	private long limit = 0;

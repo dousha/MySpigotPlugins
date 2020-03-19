@@ -3,6 +3,7 @@ package tech.dsstudio.minecraft.playerdata.driver;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import tech.dsstudio.minecraft.playerdata.PlayerData;
+import tech.dsstudio.minecraft.playerdata.exceptions.CannotAccessMediumException;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -69,7 +70,13 @@ public class SimpleFileStorage implements PlayerDataStorage {
 
 	@Override
 	public void purge() {
-		// TODO
+		activeData.keySet().forEach(key -> {
+			File file = new File(base, key);
+			if (!file.delete()) {
+				throw new CannotAccessMediumException(file);
+			}
+		});
+		activeData.clear();
 	}
 
 	@Override

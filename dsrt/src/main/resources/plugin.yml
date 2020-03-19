@@ -1,6 +1,6 @@
 name: DSRuntime
 version: 0.1-BLEEDING
-main: tech.dsstudio.minecraft.dsrt.Main
+main: tech.dsstudio.minecraft.dsrt.ServerRuntime
 author: dousha99
 commands:
   ls:

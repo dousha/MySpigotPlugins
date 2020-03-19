@@ -1,0 +1,23 @@
+name: PlayerStamina
+main: tech.dsstudio.minecraft.stamina.PlayerStaminaApi
+version: 0.1-SNAPSHOT
+author: dousha99
+depend:
+  - PlayerData
+commands:
+  pst:
+    description: Set player stamina mode
+    usage: /pst <enable|disable> <player>
+    permission: ps.use
+  psw:
+    description: Set shold player enter stamina mode when entering enabled worlds and exit when exiting
+    usage: /psw <enable|disable> <enable|disable>
+    permission: ps.use
+  psc:
+    description: Examine stamina value
+    usage: /psc <player>
+    permission: ps.use
+permissions:
+  ps.use:
+    description: Allow tweaking settings of the plugins
+    default: op

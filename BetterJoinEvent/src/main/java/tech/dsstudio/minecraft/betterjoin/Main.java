@@ -28,7 +28,7 @@ public class Main extends JavaPlugin implements Listener {
 		if (storage != null) {
 			PlayerData data = storage.get(e.getPlayer().getUniqueId());
 			Object obj = data.get(LAST_TIME_JOIN_KEY);
-			long lastLeave = (long) data.getOrDefault(LAST_TIME_LEAVE_KEY, 0);
+			long lastLeave = (long) data.getOrDefault(LAST_TIME_LEAVE_KEY, 0L);
 			PlayerRejoinEvent event;
 			if (obj != null) {
 				long lastJoin = (long) obj;

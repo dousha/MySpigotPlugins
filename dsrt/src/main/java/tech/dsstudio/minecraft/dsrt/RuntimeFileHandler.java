@@ -28,7 +28,7 @@ public class RuntimeFileHandler implements Comparable<RuntimeFileHandler> {
 	}
 
 	protected void finalize() {
-		Main.getHub().close(this);
+		ServerRuntime.getHub().close(this);
 	}
 
 	public File getFile() {

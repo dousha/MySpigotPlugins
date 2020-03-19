@@ -1,0 +1,33 @@
+runningConfig:
+  debug: yes
+
+attributeSets:
+  baseAttribute:
+    friendlyName: "玩家基类"
+    health: 20
+    magic: 20
+    stamina: 24
+    attack: 1
+    defense: 1
+    dexterity: 1
+    durability: 1
+    intelligence: 1
+    charisma: 1
+  spectator:
+    friendlyName: "旁观者"
+    health: 1
+    magic: 0
+    stamina: 20
+    attack: 0
+    defense: 100
+    dexterity: 1
+    durability: 100
+    intelligence: 0
+    charisma: 0
+
+evaluators:
+  eval-1:
+    type: DEFENSE_DAMAGE
+    expr: "/" # RPN4LIFE
+    params:
+      - DEFENSE

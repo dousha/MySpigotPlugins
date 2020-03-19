@@ -2,7 +2,7 @@ package tech.dsstudio.minecraft.playerdata.objects;
 
 import java.io.Serializable;
 
-public class TimedData<T extends Serializable> {
+public class TimedData<T extends Serializable> implements Serializable {
 	public TimedData(T data, long expire) {
 		this.data = data;
 		this.expire = expire;
