@@ -1,0 +1,84 @@
+@title 操作符说明
+
+@section @code{operation} 键
+
+@subsection @code{compare}
+
+测试对象值和期望值是否满足一个比较关系。
+
+该操作仅适用于在对象值和期望值可以比较的情况下，具体的语法，见 @link{value-syntax}。
+
+@subsection @code{contain}
+
+测试期望值是否包含在对象值内。
+
+该操作仅适用于对象值是一个集合的情况下（或实现了 @code{contains} 方法）。
+
+@subsection @code{modify}
+
+修改对象值。
+
+@subsection @code{wait}
+
+等待一段时间。
+
+@subsection @code{execute}
+
+执行一个命令。
+
+@section @code{value} 键
+@label{value-syntax}
+
+当进行举例时，左侧为期望值，右侧为实际值。有些操作符是一元的，
+这表示它们只用于实际值。但无论操作符是一元还是二元的，其在 @code{value} 中
+都写作 @code{<符号> [期望值]}, 和实际的配置脚本中的写法一致。
+
+@subsection @code{=}, @code{!=}
+
+测试值是否相等。对于对象，则调用 @code{.equals(.)} 方法比较。
+
+需要注意两侧类型必须相等才能进行比较。
+
+@code{=} 的行为和 @code{!=} 的行为相反，举例如下：
+
+@code:
+1 = 1 -> pass
+2.342 = 2.342 -> pass
+[] = [] -> pass
+"abc" = "abc" -> pass
+["abc", "def"] = ["abc", "def"] -> pass
+null = null -> pass
+true = true -> pass
+
+false = 0 -> fail
+0 = 1 -> fail
+null = 1 -> fail
+0 = null -> fail
+[1, 2] = [2, 1] -> fail
+@@
+
+@subsection @code{<}, @code{>}, @code{<=}, @code{>=}
+
+@subsection @code{?}, @code{!}
+
+测试值是否为 @code{null}, 字符串是否为空或集合是否为空。
+
+@code{?} 的行为和 @code{!} 的行为相反，举例如下：
+
+@code:
+? null -> pass
+? "" -> pass
+? "    " -> pass
+? [] -> pass
+? new HashSet<> -> pass
+? {} -> pass
+
+? 0 -> fail
+? 1 -> fail
+? new Object() -> fail
+? "null" -> fail
+@@
+
+@subsection @code{~}, @code{!~}
+
+测试字符串是否匹配一个正则表达式。

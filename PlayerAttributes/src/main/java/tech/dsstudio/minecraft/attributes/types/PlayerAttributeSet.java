@@ -1,4 +1,4 @@
-package tech.dsstudio.minecraft.attributes;
+package tech.dsstudio.minecraft.attributes.types;
 
 import org.bukkit.configuration.ConfigurationSection;
 import org.jetbrains.annotations.Contract;

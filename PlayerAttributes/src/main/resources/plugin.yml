@@ -1,0 +1,12 @@
+name: PlayerAttributes
+version: 0.1-SNAPSHOT
+main: tech.dsstudio.minecraft.attributes.PlayerAttributesApi
+author: dousha99
+depend:
+  - PlayerData
+  - PlayerTaskHook
+  - PlayerStamina
+commands:
+  pat:
+    description: PlayerAttribute command, see instruction manual
+    usage: /pat <category> <action>

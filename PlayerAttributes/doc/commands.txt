@@ -1,0 +1,89 @@
+ ____     _      _
+|  _ \   / \   _| |_
+| |_| | / _ \ |_   _|
+|  __/ / / \ \  | |
+| |___/ /   \ \_| |_
+|______/     \______|
+
+PlayerAttribute 命令一览
+
+总语法：/pat <类别> <行为>
+
+--[ 命令前缀约定 ]--
+
+输入命令时，不需要输入前缀。
+
+仅 OP 可使用的命令以 # 表示：
+# /pad
+
+任何人可使用的命令以 $ 表示：
+$ /pad
+
+不推荐在生产环境中使用的命令以 ! 表示：
+! /pad
+
+这些前缀可以组合。
+
+--[ 类别索引 ]--
+
+* add
+* config
+* debug
+* delete
+* eval
+* set
+
+--[ add 添加 ]--
+
+追加一个结算器：
+#! /pad add evaluator <type> <expr> ; <params>
+
+追加一个 class 中的结算器：
+
+#! /pad add evaluator class <path>
+
+追加一个 jar 包中的结算器：
+
+#! /pad add evaluator jar <path>
+
+追加一个 class 中的演算指令：
+
+#! /pad add operator class <path>
+
+追加一个 jar 包中的演算指令：
+
+#! /pad add operator jar <path>
+
+--[ config 配置 ]--
+
+重载配置：
+#! /pad config reload
+
+将当前结算设定写入配置：
+#! /pad config write
+
+--[ debug 调试 ]--
+
+列出所有结算器：
+$ /pad debug list
+
+给出结算器的详细信息：
+$ /pad debug get <name>
+
+--[ delete 删除 ]--
+
+删除一个结算器：
+#! /pad delete evaluator <name>
+
+--[ eval 计算 ]--
+
+触发一个 DEBUG 类型结算器：
+$ /pad eval <name> <params?>
+
+--[ set 设定 ]--
+
+设置一名玩家的一项属性：
+# /pad set playerAttribute <player> <attribute> <value>
+
+设置一名玩家的属性基类：
+# /pad set playerAttributeSet <player> <set>

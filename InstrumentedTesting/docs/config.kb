@@ -1,0 +1,10 @@
+@title 配置文件结构
+
+@code(yml):
+db: # 数据库相关配置
+  server: localhost # 主机名
+  port: 3306 # 端口
+  username: root # 用户名
+  password: root # 密码
+  database: minecraft # 数据库名
+@@

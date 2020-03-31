@@ -1,17 +1,19 @@
-package tech.dsstudio.minecraft.attributes;
+package tech.dsstudio.minecraft.attributes.evaluator;
 
-import org.bukkit.configuration.ConfigurationSection;
+import org.jetbrains.annotations.NotNull;
+import tech.dsstudio.RpnStack;
 
-public class Evaluator {
-	public Evaluator(ConfigurationSection section) {
-
+public abstract class Evaluator {
+	public Evaluator(EvaluationType type) {
+		this.type = type;
 	}
 
-	public double evaluateAttackDamage(PlayerAttributes attributes, double originalDamage) {
-
+	@NotNull
+	public EvaluationType getType() {
+		return type;
 	}
 
-	public double evaluateDefenseDamage(PlayerAttributes attributes, double originalDamage) {
+	public abstract void evaluate(@NotNull RpnStack stack);
 
-	}
+	private EvaluationType type;
 }

@@ -15,6 +15,7 @@ import tech.dsstudio.minecraft.playerdata.events.StorageReadyEvent;
 public class PlayerStaminaApi extends JavaPlugin implements Listener {
 	@Override
 	public void onEnable() {
+		instance = this;
 		saveDefaultConfig();
 		getServer().getPluginManager().registerEvents(this, this);
 		getServer().getPluginManager().callEvent(new RequestForStorageEvent());
@@ -100,5 +101,10 @@ public class PlayerStaminaApi extends JavaPlugin implements Listener {
 		return logic.getPlayerStaminaTop(player.getUniqueId());
 	}
 
+	public static PlayerStaminaApi getInstance() {
+		return instance;
+	}
+
 	private CoreLogic logic;
+	private static PlayerStaminaApi instance;
 }

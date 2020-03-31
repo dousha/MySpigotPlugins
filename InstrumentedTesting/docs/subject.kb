@@ -1,0 +1,14 @@
+@title 测试对象语法说明
+
+@section 通则
+
+测试对象的一般语法为 @code{<项目>.<目标名>.<属性名>}.
+
+@section db
+
+@section file
+
+@section player
+
+@section world
+

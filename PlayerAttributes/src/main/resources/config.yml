@@ -1,4 +1,4 @@
-runningConfig:
+general:
   debug: yes
 
 attributeSets:
@@ -31,3 +31,13 @@ evaluators:
     expr: "/" # RPN4LIFE
     params:
       - DEFENSE
+
+external:
+  evaluators:
+    ex-eval-1:
+      active: no
+      path: parcel.jar
+  operators:
+    hp-pack:
+      active: no
+      path: hp.jar
