@@ -1,0 +1,32 @@
+name: PlayerXp
+version: 0.1-SNAPSHOT
+main: tech.dsstudio.minecraft.xp.PlayerXpApi
+author: dousha99
+depend:
+  - ProtocolLib
+  - PlayerData
+
+permissions:
+  pxp.toggle:
+    description: Control PlayerXp bar display
+    default: op
+  pxp.read:
+    description: Get current PlayerXp value
+    default: true
+  pxp.write:
+    description: Set current PlayerXp value
+    default: op
+
+commands:
+  pxp:
+    description: Replace xp bar with PlayerXp bar
+    usage: /pxp <on|off> [player=self]
+    permission: pxp.toggle
+  pxpr:
+    description: Read PlayerXp value
+    usage: /pxpr <level|bar> [player=self]
+    permission: pxp.read
+  pxpw:
+    description: Write PlayerXp value
+    usage: /pxpw <level|bar> <value> [player=self]
+    permission: pxp.write

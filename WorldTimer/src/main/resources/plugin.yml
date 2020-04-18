@@ -7,6 +7,15 @@ depend:
   - PlayerTaskHook
 
 permissions:
+  wt.use:
+    description: Allow use of /wt commands
+    default: op
   wtexempt:
     description: Self-explanatory
     default: op
+
+commands:
+  wt:
+    description: WorldTimer controlling command
+    usage: /wt <pause|resume> [player=self]
+    permission: wt.use

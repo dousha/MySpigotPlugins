@@ -18,6 +18,7 @@ public class TaskDescriptor {
 	long executionTime;
 	long remainingWaitTime;
 	boolean needRemoval = false;
+	boolean isSuspended = false;
 
 	@Override
 	public boolean equals(Object o) {
@@ -33,11 +34,15 @@ public class TaskDescriptor {
 	}
 
 	public void suspend() {
-		PlayerTaskHookApi.suspend(this);
+		if (!this.isSuspended) {
+			PlayerTaskHookApi.suspend(this);
+		}
 	}
 
 	public void resume() {
-		PlayerTaskHookApi.resume(this);
+		if (this.isSuspended) {
+			PlayerTaskHookApi.resume(this);
+		}
 	}
 
 	public void cancel() {
@@ -45,7 +50,7 @@ public class TaskDescriptor {
 	}
 
 	public boolean isSuspended() {
-		return false;
+		return this.isSuspended;
 	}
 
 	public JavaPlugin getOwner() {

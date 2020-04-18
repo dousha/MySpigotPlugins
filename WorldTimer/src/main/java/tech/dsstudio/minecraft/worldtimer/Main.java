@@ -3,6 +3,8 @@ package tech.dsstudio.minecraft.worldtimer;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -73,6 +75,68 @@ public class Main extends JavaPlugin implements Listener {
 		}
 	}
 
+	@Override
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		if (command.getName().equals("wt")) {
+			if (args.length > 2 || args.length < 1) {
+				return false;
+			}
+			String playerName;
+			if (args.length == 1) {
+				if (!(sender instanceof Player)) {
+					sender.sendMessage("You have to specify a player");
+					return false;
+				} else {
+					playerName = sender.getName();
+				}
+			} else {
+				playerName = args[1];
+			}
+			Player player = getServer().getPlayer(playerName);
+			if (player == null) {
+				sender.sendMessage("Player is not online");
+				return true;
+			}
+			switch (args[0]) {
+				case "pause":
+					suspendTimer(player);
+					break;
+				case "resume":
+					resumeTimer(player);
+					break;
+				default:
+					return false;
+			}
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public void suspendTimer(@NotNull Player player) {
+		PlayerData data = storage.get(player.getUniqueId());
+		if (data.hasVolatileKey(MASTER_TASK_KEY_NAME)) {
+			TaskDescriptor task = (TaskDescriptor) data.getVolatileOrFail(MASTER_TASK_KEY_NAME);
+			task.suspend();
+		}
+		if (data.hasVolatileKey(BOSS_BAR_TASK_KEY_NAME)) {
+			TaskDescriptor task = (TaskDescriptor) data.getVolatileOrFail(BOSS_BAR_TASK_KEY_NAME);
+			task.suspend();
+		}
+	}
+	
+	public void resumeTimer(@NotNull Player player) {
+		PlayerData data = storage.get(player.getUniqueId());
+		if (data.hasVolatileKey(MASTER_TASK_KEY_NAME)) {
+			TaskDescriptor task = (TaskDescriptor) data.getVolatileOrFail(MASTER_TASK_KEY_NAME);
+			task.resume();
+		}
+		if (data.hasVolatileKey(BOSS_BAR_TASK_KEY_NAME)) {
+			TaskDescriptor task = (TaskDescriptor) data.getVolatileOrFail(BOSS_BAR_TASK_KEY_NAME);
+			task.resume();
+		}
+	}
+
 	private void applyWorldLimit(@NotNull Player player, @NotNull PlayerData data) {
 		if (data.hasKey(WORLD_KEY_NAME)) {
 			String worldName = data.getString(WORLD_KEY_NAME);
@@ -91,7 +155,7 @@ public class Main extends JavaPlugin implements Listener {
 
 	private void removeWorldLimit(@NotNull Player player, @NotNull PlayerData data, @NotNull WorldLimitDescriptor descriptor) {
 		if (data.hasVolatileKey(MASTER_TASK_KEY_NAME)) {
-			TaskDescriptor master = (TaskDescriptor) data.getVolatile(MASTER_TASK_KEY_NAME);
+			TaskDescriptor master = (TaskDescriptor) data.getVolatileOrFail(MASTER_TASK_KEY_NAME);
 			master.cancel();
 			data.setVolatile(MASTER_TASK_KEY_NAME, null);
 			List<TaskDescriptor> children = (List<TaskDescriptor>) data.getVolatile(CHILD_TASK_KEY_NAME);
