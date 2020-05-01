@@ -1,0 +1,7 @@
+name: MM-ConditionInventory
+version: 0.1-INTERNAL
+main: tech.dsstudio.minecraft.mm.conditions.Main
+author: dousha99
+depend:
+  - MythicMobs
+  - Residence
