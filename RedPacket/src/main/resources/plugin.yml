@@ -1,0 +1,18 @@
+name: RedPacket
+main: tech.dsstudio.minecraft.redpacket.Main
+version: 0.3-INTERNAL
+author: dousha99
+depend:
+  - PlayerPoints
+softdepend:
+  - Vault
+commands:
+  hehe:
+    description: Issue a RedPacket (TM)
+    usage: "hehe <money|points> <total> <quantity> <displayName> <m1|m2> [m2: token(collapse)] -or- hehe custom <quantity> <displayName> <m1|m2> [m2: token(1 word!)] <command(collapse)>"
+  hehereload:
+    description: Reload
+    usage: "hehereload"
+  rpd:
+    description: Draw from a RedPacket (TM) (SHOULD NOT EXPOSE TO PLAYERS)
+    usage: "rpd <uuid>"

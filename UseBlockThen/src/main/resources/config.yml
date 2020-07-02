@@ -1,0 +1,6 @@
+test:
+  block: SMITHING_TABLE
+  command: /me hello
+another:
+  block: STONE
+  command: /me stone!

@@ -1,0 +1,50 @@
+# 要更改信息，请保留所有占位符！
+messages:
+  money:
+    - '------ %s ------' # 名字
+    - '------ %c ------' # 行为
+    - '------ 红包数量: %q ------' # 数量
+    - '------ 红包金额: %v ------' # 总额
+  points:
+    - '------ %s ------'
+    - '------ %c ------'
+    - '------ 红包数量: %q ------'
+    - '------ 红包金额: %v ------'
+  custom:
+    - '------ %s ------'
+    - '------ %c ------'
+    - '------ 红包数量: %q ------'
+  buttonStyle: "[点我领取]" # 按钮的样式
+  sayToDrawMessage: "输入文字: %s"
+  winnerMessage: "%p 的红包被领完，%w 是运气王！获得%t: %v"
+  drawMessage: "%w 领了 %p 的 %s，获得%t %v, 剩余 %r"
+  customDrawMessage: "%w 领了 %p 的 %s，剩余 %r"
+  silentDrawMessage: "您领取了 %p 的红包, 获得 %t %v"
+  silentCustomDrawMessage: "您领取了 %p 的红包"
+  # %p - 发红包玩家名
+  # %w - 领红包玩家名
+  # %s - 红包名
+  # %t - 红包类型（金币/点券）
+  # %v - 获得金额
+  # %r - 剩余个数
+  emptyDrawMessage: "晚了一步，红包被领完了"
+  expiredMessage: "晚了一步，红包已经过期了"
+  issuePermissionMessage: "您没有发红包的权限"
+  drawPermissionMessage: "您没有抢红包的权限"
+  strangeErrorMessage: "看起来出了点错误？"
+  redrawMessage: "您已经抢过该红包了"
+  overdrawMessage: "您没有足够的资金"
+  nobodyHomeMessage: "你需要指定至少一个人"
+  hasToBeIntegerMessage: "必须是一个整数"
+wordings:
+  custom: "特殊" # custom 类型
+  currency: "金币"
+  points: "点券"
+controls:
+  expires: 60 # 秒后过期，调成 86400 以模拟现实世界行为
+  announceWinner: true
+  announceEveryone: true
+  allowQuickTokenInput: false
+permissions:
+  issue: rp.issue # 发红包权限
+  draw: rp.draw # 领红包权限

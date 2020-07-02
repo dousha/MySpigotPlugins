@@ -1,0 +1,13 @@
+name: UseBlockThen
+version: 0.1-SNAPSHOT
+main: tech.dsstudio.minecraft.useblock.UseBlockApi
+author: dousha99
+api-version: 1.15
+commands:
+  ubtr:
+    description: Reload config
+    permission: ubtr.use
+permissions:
+  ubtr.use:
+    description: Allow to use all commands
+    default: op
