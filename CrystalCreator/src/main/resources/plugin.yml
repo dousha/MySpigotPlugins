@@ -1,0 +1,7 @@
+name: CrystalCreator
+version: 0.1-SNAPSHOT
+main: tech.dsstudio.minecraft.crystal.CrystalApi
+api-version: 1.13
+author: dousha99
+depend:
+  - PlayerData
