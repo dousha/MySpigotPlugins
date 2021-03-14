@@ -1,0 +1,8 @@
+name: libTurtle
+description: Library for turtles, not turtles in minecraft, but a programming concept.
+version: 0.1-BLEEDING
+main: tech.dsstudio.minecraft.turtle.Main
+depend:
+  - libInventory
+softdepend:
+  - Residence
